@@ -1,0 +1,72 @@
+{
+  "name": "@fun-eat/design-system",
+  "description": "펀잇 디자인시스템 라이브러리",
+  "version": "0.0.0",
+  "main": "./dist/index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fun-eat/design-system.git"
+  },
+  "contributors": [
+    {
+      "name": "Taeeun Kim",
+      "email": "taeeun.dev@gmail.com"
+    },
+    {
+      "name": "Leejin Yang",
+      "email": "ejin1996@gmail.com"
+    },
+    {
+      "name": "Solbi Baek",
+      "email": "solbi200420@gmail.com"
+    }
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "build": "GENERATE_SOURCEMAP=false webpack --progress --mode production",
+    "publish": "rm -rf dist && mkdir dist && tsc"
+  },
+  "peerDependencies": {
+    "react": ">=18.x",
+    "react-dom": ">=18.x",
+    "styled-components": ">=6.x"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.22.7",
+    "@babel/preset-react": "^7.22.5",
+    "@babel/preset-typescript": "^7.22.5",
+    "@storybook/addon-essentials": "^7.0.26",
+    "@storybook/addon-interactions": "^7.0.26",
+    "@storybook/addon-links": "^7.0.26",
+    "@storybook/blocks": "^7.0.26",
+    "@storybook/react": "^7.0.26",
+    "@storybook/react-webpack5": "^7.0.26",
+    "@storybook/testing-library": "^0.0.14-next.2",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "@types/styled-components": "^5.1.26",
+    "@typescript-eslint/eslint-plugin": "^5.60.1",
+    "@typescript-eslint/parser": "^5.60.1",
+    "chromatic": "^6.19.9",
+    "eslint": "^8.44.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-storybook": "^0.6.12",
+    "prettier": "^2.8.8",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "^7.0.26",
+    "styled-components": "^6.0.2",
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.1.6",
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4"
+  }
+}
