@@ -42,12 +42,38 @@ const backgroundColors = {
   default: colors.white,
 } as const;
 
+const fontSizes = {
+  xs: '1.2rem',
+  sm: '1.4rem',
+  md: '1.6rem',
+  lg: '1.8rem',
+  xl: '2rem',
+} as const;
+
+const fontWeights = {
+  light: 300,
+  regular: 400,
+  bold: 700,
+} as const;
+
+const lineHeights = {
+  xs: 1,
+  sm: 1.2,
+  md: 1.5,
+  lg: 1.8,
+  xl: 2,
+} as const;
+
 const theme: DefaultTheme = {
   colors,
   textColors,
   borderColors,
   dividerColors,
   backgroundColors,
+
+  fontSizes,
+  fontWeights,
+  lineHeights,
 };
 
 export default theme;
