@@ -50,4 +50,6 @@ const theme: DefaultTheme = {
   backgroundColors,
 };
 
+export type Colors = keyof typeof colors;
+
 export default theme;
