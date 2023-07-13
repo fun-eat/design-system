@@ -49,7 +49,7 @@ const Box = () => {
 };
 
 export const Default: Story = {
-  render: ({ direction, size }) => (
+  render: ({ direction = 'vertical', size }) => (
     <Container vertical={direction === 'vertical'}>
       <Box />
       <Spacing direction={direction} size={size} />
