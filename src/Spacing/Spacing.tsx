@@ -1,5 +1,6 @@
-import type { ComponentPropsWithoutRef } from 'react';
 import styled from 'styled-components';
+
+import type { ComponentPropsWithoutRef } from 'react';
 
 export interface SpacingProps extends ComponentPropsWithoutRef<'div'> {
   direction: 'vertical' | 'horizontal';
