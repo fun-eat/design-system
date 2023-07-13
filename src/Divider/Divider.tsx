@@ -2,12 +2,12 @@ import type { ComponentPropsWithoutRef } from 'react';
 import styled, { css } from 'styled-components';
 
 export interface DividerProps extends ComponentPropsWithoutRef<'div'> {
-  type?: 'default' | 'strong' | 'disabled';
+  variant?: 'default' | 'strong' | 'disabled';
   length?: string;
 }
 
-const Divider = ({ type = 'default', length = '100%', ...props }: DividerProps) => {
-  return <DividerContainer type={type} length={length} {...props} />;
+const Divider = ({ variant = 'default', length = '100%', ...props }: DividerProps) => {
+  return <DividerContainer variant={variant} length={length} {...props} />;
 };
 
 const dividerStyles = {
@@ -23,7 +23,7 @@ const dividerStyles = {
 };
 
 const DividerContainer = styled.div<DividerProps>`
-  ${({ type }) => dividerStyles[!type ? (type = 'default') : type]}
+  ${({ variant }) => dividerStyles[!variant ? (variant = 'default') : variant]}
 `;
 
 export default Divider;

@@ -5,7 +5,7 @@ const meta = {
   title: 'Divider',
   component: Divider,
   argTypes: {
-    type: {
+    variant: {
       description: 'divider의 종류입니다.',
     },
     length: { description: 'divider의 길이입니다.' },
@@ -17,18 +17,18 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    type: 'default',
+    variant: 'default',
   },
 };
 
 export const Strong: Story = {
   args: {
-    type: 'strong',
+    variant: 'strong',
   },
 };
 
 export const Disabled: Story = {
   args: {
-    type: 'disabled',
+    variant: 'disabled',
   },
 };
