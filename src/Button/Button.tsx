@@ -64,5 +64,5 @@ const buttonTypeStyles = {
 const ButtonContainer = styled.button<ButtonProps>`
   color: ${({ textColor }) => textColor};
   ${({ styleType, color }) => buttonStyleTypeStyles[styleType](color)};
-  ${({ size }) => buttonTypeStyles[!size ? 'md' : size]};
+  ${({ size }) => buttonTypeStyles[size ?? 'md']};
 `;
