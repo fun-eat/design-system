@@ -1,16 +1,17 @@
-import type { ComponentPropsWithoutRef, ElementType, PropsWithChildren } from 'react';
 import styled from 'styled-components';
+
+import type { ComponentPropsWithoutRef, ElementType, PropsWithChildren } from 'react';
 
 import theme from '@styles/theme';
 
 type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
-type TextTypes = Extract<ElementType, 'p' | 'span'>;
+type TextElement = Extract<ElementType, 'p' | 'span'>;
 type TextAligns = 'left' | 'center' | 'right';
 type TextWeights = 'light' | 'regular' | 'bold';
 
 interface TextStyleProps {
-  type?: TextTypes;
+  element?: TextElement;
   size?: Sizes;
   weight?: TextWeights;
   lineHeight?: Sizes;
@@ -18,12 +19,12 @@ interface TextStyleProps {
   align?: TextAligns;
 }
 
-export type TextProps<T extends TextTypes> = TextStyleProps &
+export type TextProps<T extends TextElement> = TextStyleProps &
   PropsWithChildren<ComponentPropsWithoutRef<T>> & { as?: T };
 
-const Text = <T extends TextTypes = 'p'>({
+const Text = <T extends TextElement = 'p'>({
   children,
-  type,
+  element,
   size = 'md',
   weight = 'regular',
   lineHeight = 'md',
@@ -32,7 +33,15 @@ const Text = <T extends TextTypes = 'p'>({
   ...props
 }: TextProps<T>) => {
   return (
-    <TextContainer as={type} size={size} weight={weight} lineHeight={lineHeight} color={color} align={align} {...props}>
+    <TextContainer
+      as={element}
+      size={size}
+      weight={weight}
+      lineHeight={lineHeight}
+      color={color}
+      align={align}
+      {...props}
+    >
       {children}
     </TextContainer>
   );

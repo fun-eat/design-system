@@ -6,7 +6,7 @@ const meta: Meta<typeof Text> = {
   title: 'Text',
   component: Text,
   argTypes: {
-    type: {
+    element: {
       description: '대체할 HTML 태그입니다.',
     },
     size: {
