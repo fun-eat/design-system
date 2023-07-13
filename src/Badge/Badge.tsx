@@ -1,7 +1,8 @@
+import { css, styled } from 'styled-components';
+
+import type { Sizes } from '@types';
 import type { ComponentPropsWithoutRef } from 'react';
 import type { RuleSet } from 'styled-components';
-import { css, styled } from 'styled-components';
-import type { Sizes } from '@types';
 
 interface BadgeProps extends ComponentPropsWithoutRef<'div'> {
   color: string;

@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import theme from '@styles/theme';
+
 import Badge from './Badge';
+
+import theme from '@styles/theme';
 
 const meta = {
   title: 'Badge',
