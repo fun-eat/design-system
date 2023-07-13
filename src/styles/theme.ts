@@ -1,5 +1,17 @@
 import type { DefaultTheme } from 'styled-components';
 
+export type Colors = typeof colors;
+export type TextColors = typeof textColors;
+export type BorderColors = typeof borderColors;
+export type DividerColors = typeof dividerColors;
+export type BackgroundColors = typeof backgroundColors;
+
+export type FontSizes = typeof fontSizes;
+export type FontWeights = typeof fontWeights;
+export type LineHeights = typeof lineHeights;
+
+export type BorderRadius = typeof borderRadius;
+
 const colors = {
   primary: '#D8EAFF',
   secondary: '#FFEC99',
@@ -42,12 +54,48 @@ const backgroundColors = {
   default: colors.white,
 } as const;
 
+const fontSizes = {
+  xs: '1.2rem',
+  sm: '1.4rem',
+  md: '1.6rem',
+  lg: '1.8rem',
+  xl: '2rem',
+} as const;
+
+const fontWeights = {
+  light: 300,
+  regular: 400,
+  bold: 700,
+} as const;
+
+const lineHeights = {
+  xs: 1,
+  sm: 1.2,
+  md: 1.5,
+  lg: 1.8,
+  xl: 2,
+} as const;
+
+const borderRadius = {
+  xs: '4px',
+  sm: '8px',
+  md: '10px',
+  lg: '12px',
+  xl: '14px',
+} as const;
+
 const theme: DefaultTheme = {
   colors,
   textColors,
   borderColors,
   dividerColors,
   backgroundColors,
+
+  fontSizes,
+  fontWeights,
+  lineHeights,
+
+  borderRadius,
 };
 
 export default theme;
