@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
-import type { ComponentPropsWithoutRef, ElementType, PropsWithChildren } from 'react';
+import type { OverridableComponentPropsWithoutRef, Sizes } from '@type';
+import type { ElementType } from 'react';
 
 import theme from '@styles/theme';
-
-type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 type TextElement = Extract<ElementType, 'p' | 'span'>;
 type TextAligns = 'left' | 'center' | 'right';
@@ -37,8 +36,7 @@ interface TextStyleProps {
   align?: TextAligns;
 }
 
-export type TextProps<T extends TextElement> = TextStyleProps &
-  PropsWithChildren<ComponentPropsWithoutRef<T>> & { as?: T };
+export type TextProps<T extends TextElement> = OverridableComponentPropsWithoutRef<T, TextStyleProps>;
 
 const Text = <T extends TextElement = 'p'>({
   children,
