@@ -25,52 +25,49 @@ const meta: Meta<typeof Text> = {
       description: '텍스트 정렬입니다.',
     },
   },
+  args: {
+    children: '안녕하세요 펀잇입니다. 로망오우타해황',
+  },
 };
 
 export default meta;
 type Story = StoryObj<typeof Text>;
 
-const text = '안녕하세요 펀잇입니다';
-
-export const Default: Story = {
-  args: {
-    children: text,
-  },
-};
+export const Default: Story = {};
 
 export const Sizes: Story = {
-  render: () => (
+  render: ({ children }) => (
     <>
-      <Text size="xs">{`${text}: xs`}</Text>
-      <Text size="sm">{`${text}: sm`}</Text>
-      <Text size="md">{`${text}: md (default)`}</Text>
-      <Text size="lg">{`${text}: lg`}</Text>
-      <Text size="xl">{`${text}: xl`}</Text>
+      <Text size="xs">{children}</Text>
+      <Text size="sm">{children}</Text>
+      <Text size="md">{children}</Text>
+      <Text size="lg">{children}</Text>
+      <Text size="xl">{children}</Text>
     </>
   ),
 };
 
 export const Weights: Story = {
-  render: () => (
+  render: ({ children }) => (
     <>
-      <Text weight="light">{`${text}: light`}</Text>
-      <Text weight="regular">{`${text}: regular (default)`}</Text>
-      <Text weight="bold">{`${text}: bold`}</Text>
+      <Text weight="light">{children}</Text>
+      <Text weight="regular">{children}</Text>
+      <Text weight="bold">{children}</Text>
     </>
   ),
 };
 
 export const Aligns: Story = {
-  render: () => (
+  render: ({ children }) => (
     <>
       <Text align="left" lineHeight="xl">
-        {text}
+        {children}
       </Text>
       <Text align="center" lineHeight="xl">
-        {text}
+        {children}
       </Text>
       <Text align="right" lineHeight="xl">
-        {text}
+        {children}
       </Text>
     </>
   ),
