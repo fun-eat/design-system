@@ -8,13 +8,13 @@ import type { ColorKeys } from '@styles/theme';
 export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
   color: ColorKeys;
   textColor: ColorKeys;
-  styleType: 'outFilled' | 'filled';
+  variant: 'outFilled' | 'filled';
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 }
 
-const Button = ({ color, textColor, styleType = 'filled', size = 'md', children, ...props }: ButtonProps) => {
+const Button = ({ color, textColor, variant = 'filled', size = 'md', children, ...props }: ButtonProps) => {
   return (
-    <ButtonContainer color={color} textColor={textColor} styleType={styleType} size={size} {...props}>
+    <ButtonContainer color={color} textColor={textColor} variant={variant} size={size} {...props}>
       {children}
     </ButtonContainer>
   );
@@ -63,6 +63,6 @@ const buttonTypeStyles = {
 
 const ButtonContainer = styled.button<ButtonProps>`
   color: ${({ textColor }) => textColor};
-  ${({ styleType, color }) => buttonStyleTypeStyles[styleType](color)};
+  ${({ variant, color }) => buttonStyleTypeStyles[variant](color)};
   ${({ size }) => buttonTypeStyles[size ?? 'md']};
 `;

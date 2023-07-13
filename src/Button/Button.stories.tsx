@@ -7,27 +7,27 @@ const meta: Meta<typeof Button> = {
   component: Button,
   argTypes: {
     color: {
-      description: 'button이 채워지는 배경 색상입니다.',
+      description: 'Button이 채워지는 배경 색상입니다.',
     },
     textColor: {
-      description: 'button의 텍스트 색상입니다.',
+      description: 'Button의 텍스트 색상입니다.',
     },
-    styleType: {
+    variant: {
       description:
-        'button의 스타일로 배경색 없이 아웃라인이 있는지, 배경색이 있고 아웃라인이 없는지 설정할 수 있습니다.',
+        'Button의 스타일로 배경색 없이 아웃라인이 있는지, 배경색이 있고 아웃라인이 없는지 설정할 수 있습니다.',
     },
     size: {
-      description: 'button의 사이즈입니다.',
+      description: 'Button의 사이즈입니다.',
     },
   },
   args: {
     color: 'black',
     textColor: 'white',
-    styleType: 'filled',
+    variant: 'filled',
     size: 'md',
     children: '버튼',
   },
-} satisfies Meta<typeof Button>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -64,12 +64,12 @@ export const XLarge: Story = {
 
 export const OutFilled: Story = {
   args: {
-    styleType: 'outFilled',
+    variant: 'outFilled',
   },
 };
 
 export const Filled: Story = {
   args: {
-    styleType: 'filled',
+    variant: 'filled',
   },
 };
