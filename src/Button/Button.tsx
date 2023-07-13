@@ -1,10 +1,12 @@
-import type { Colors } from '@styles/theme';
-import type { ComponentPropsWithoutRef } from 'react';
 import styled, { css } from 'styled-components';
 
+import type { ComponentPropsWithoutRef } from 'react';
+
+import type { ColorKeys } from '@styles/theme';
+
 export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
-  color: Colors;
-  textColor: Colors;
+  color: ColorKeys;
+  textColor: ColorKeys;
   styleType: 'outFilled' | 'filled';
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 }
@@ -20,12 +22,12 @@ const Button = ({ color, textColor, styleType = 'filled', size = 'md', children,
 const buttonStyleTypeStyles = ({ styleType, color }: Pick<ButtonProps, 'styleType' | 'color'>) => {
   const styles = {
     outFilled: css`
-      border: 1px solid ${color};
+      border: 1px solid ${({ theme }) => theme.colors[color]};
       background: transparent;
-      color: ${color};
+      color: ${({ theme }) => theme.colors[color]};
     `,
     filled: css`
-      background-color: ${color};
+      background-color: ${({ theme }) => theme.colors[color]};
     `,
   };
   return styles[styleType];

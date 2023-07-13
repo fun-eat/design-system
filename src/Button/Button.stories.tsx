@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
 import Button from './Button';
-import theme from '@styles/theme';
 
 const meta: Meta<typeof Button> = {
   title: 'Button',
@@ -21,8 +21,8 @@ const meta: Meta<typeof Button> = {
     },
   },
   args: {
-    color: theme.colors.black,
-    textColor: theme.colors.white,
+    color: 'black',
+    textColor: 'white',
     styleType: 'filled',
     size: 'md',
     children: '버튼',
