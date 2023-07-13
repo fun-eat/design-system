@@ -64,7 +64,7 @@ export const XLarge: Story = {
 
 export const OutFilled: Story = {
   args: {
-    variant: 'outFilled',
+    variant: 'outlined',
   },
 };
 

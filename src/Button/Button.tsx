@@ -8,7 +8,7 @@ import type { ColorKeys } from '@styles/theme';
 export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
   color: ColorKeys;
   textColor: ColorKeys;
-  variant: 'outFilled' | 'filled';
+  variant: 'outlined' | 'filled';
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 }
 
@@ -23,7 +23,7 @@ const Button = ({ color, textColor, variant = 'filled', size = 'md', children, .
 export default Button;
 
 const buttonStyleTypeStyles = {
-  outFilled: (color: ColorKeys) => css`
+  outlined: (color: ColorKeys) => css`
     border: 1px solid ${({ theme }: { theme: DefaultTheme }) => theme.colors[color]};
     background: transparent;
     color: ${({ theme }: { theme: DefaultTheme }) => theme.colors[color]};
