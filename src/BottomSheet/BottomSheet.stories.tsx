@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 import BottomSheet from './BottomSheet';
 
@@ -27,11 +27,12 @@ export const Default: Story = {
   render: () => {
     const ref = useRef<HTMLDialogElement>(null);
 
+    useEffect(() => {
+      ref.current?.showModal();
+    }, []);
+
     const closeBottomSheet = () => {
-      const modalRef = ref.current;
-      if (modalRef) {
-        modalRef.close();
-      }
+      ref.current?.close();
     };
 
     return (
