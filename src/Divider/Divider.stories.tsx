@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Divider from './Divider';
 
-const meta = {
+const meta: Meta<typeof Divider> = {
   title: 'Divider',
   component: Divider,
   argTypes: {
@@ -10,7 +10,7 @@ const meta = {
     },
     length: { description: 'divider의 길이입니다.' },
   },
-} satisfies Meta<typeof Divider>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
