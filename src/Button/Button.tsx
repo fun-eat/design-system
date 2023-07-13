@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 
 import type { ComponentPropsWithoutRef } from 'react';
+import type { DefaultTheme } from 'styled-components/dist/types';
 
 import type { ColorKeys } from '@styles/theme';
 
@@ -19,18 +20,15 @@ const Button = ({ color, textColor, styleType = 'filled', size = 'md', children,
   );
 };
 
-const buttonStyleTypeStyles = ({ styleType, color }: Pick<ButtonProps, 'styleType' | 'color'>) => {
-  const styles = {
-    outFilled: css`
-      border: 1px solid ${({ theme }) => theme.colors[color]};
-      background: transparent;
-      color: ${({ theme }) => theme.colors[color]};
-    `,
-    filled: css`
-      background-color: ${({ theme }) => theme.colors[color]};
-    `,
-  };
-  return styles[styleType];
+const buttonStyleTypeStyles = {
+  outFilled: (color: ColorKeys) => css`
+    border: 1px solid ${({ theme }: { theme: DefaultTheme }) => theme.colors[color]};
+    background: transparent;
+    color: ${({ theme }: { theme: DefaultTheme }) => theme.colors[color]};
+  `,
+  filled: (color: ColorKeys) => css`
+    background-color: ${({ theme }: { theme: DefaultTheme }) => theme.colors[color]};
+  `,
 };
 
 const buttonTypeStyles = {
@@ -63,7 +61,7 @@ const buttonTypeStyles = {
 
 const ButtonContainer = styled.button<ButtonProps>`
   color: ${({ textColor }) => textColor};
-  ${({ styleType, color }) => buttonStyleTypeStyles({ styleType, color })};
+  ${({ styleType, color }) => buttonStyleTypeStyles[styleType](color)};
   ${({ size }) => buttonTypeStyles[!size ? 'md' : size]};
 `;
 
