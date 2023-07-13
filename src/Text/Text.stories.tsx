@@ -6,6 +6,9 @@ const meta: Meta<typeof Text> = {
   title: 'Text',
   component: Text,
   argTypes: {
+    css: {
+      control: { type: 'text' },
+    },
     as: {
       table: { disable: true },
     },

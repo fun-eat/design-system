@@ -48,6 +48,7 @@ const Text = <T extends TextElement = 'p'>({
   lineHeight = 'md',
   color = theme.textColors.default,
   align = 'left',
+  css,
   ...props
 }: TextProps<T>) => {
   return (
@@ -58,6 +59,7 @@ const Text = <T extends TextElement = 'p'>({
       lineHeight={lineHeight}
       color={color}
       align={align}
+      css={css}
       {...props}
     >
       {children}
