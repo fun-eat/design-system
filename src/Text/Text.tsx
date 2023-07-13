@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import type { OverridableComponentPropsWithoutRef, Sizes } from '@type';
-import type { ElementType } from 'react';
+import type { CSSProperties, ElementType } from 'react';
 
 import theme from '@styles/theme';
 
@@ -29,7 +29,7 @@ interface TextStyleProps {
   /**
    * Text 컴포넌트의 텍스트 색상입니다.
    */
-  color?: string;
+  color?: CSSProperties['color'];
   /**
    * Text 컴포넌트의 텍스트 정렬입니다.
    */
