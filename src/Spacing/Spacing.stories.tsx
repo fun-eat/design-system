@@ -9,15 +9,6 @@ import theme from '@styles/theme';
 const meta: Meta<typeof Spacing> = {
   title: 'Spacing',
   component: Spacing,
-  argTypes: {
-    direction: {
-      description: '여백의 방향 입니다.',
-    },
-    size: {
-      description: '여백의 크기 입니다.',
-      control: 'number',
-    },
-  },
 };
 
 export default meta;

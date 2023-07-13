@@ -6,7 +6,13 @@ import type { RuleSet } from 'styled-components';
 type SpacingDirections = 'vertical' | 'horizontal';
 
 export interface SpacingProps extends ComponentPropsWithoutRef<'div'> {
+  /**
+   * Spacing 컴포넌트의 방향입니다.
+   */
   direction?: SpacingDirections;
+  /**
+   * Spacing 컴포넌트의 크기입니다.
+   */
   size: number;
 }
 
