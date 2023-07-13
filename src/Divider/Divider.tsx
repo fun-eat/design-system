@@ -25,7 +25,7 @@ const dividerStyles = {
 };
 
 const DividerContainer = styled.hr<DividerProps>`
-  ${({ variant }) => dividerStyles[!variant ? (variant = 'default') : variant]}
+  ${({ variant }) => dividerStyles[variant ?? 'default']};
   height: 1px;
   border: 0;
 `;
