@@ -9,22 +9,16 @@ const meta: Meta<typeof Badge> = {
   component: Badge,
   argTypes: {
     color: {
-      description: 'Badge 컴포넌트에 채워지는 색상입니다.',
       control: {
         type: 'color',
       },
     },
     textColor: {
-      description: 'Badge 컴포넌트의 텍스트 색상입니다.',
       control: {
         type: 'color',
       },
     },
-    size: {
-      description: 'Badge 컴포넌트 사이즈입니다.',
-    },
     children: {
-      description: 'Badge 컴포넌트에 들어갈 내용입니다.',
       control: {
         type: 'text',
       },

@@ -5,8 +5,17 @@ import type { ComponentPropsWithoutRef } from 'react';
 import type { RuleSet } from 'styled-components';
 
 interface BadgeProps extends ComponentPropsWithoutRef<'div'> {
+  /**
+   * Badge 컴포넌트 내부 색상입니다.
+   */
   color: string;
+  /**
+   * Badge 컴포넌트에 들어갈 텍스트의 색상입니다.
+   */
   textColor: string;
+  /**
+   * Badge 컴포넌트에 들어갈 텍스트의 크기입니다.
+   */
   size?: Sizes;
 }
 
