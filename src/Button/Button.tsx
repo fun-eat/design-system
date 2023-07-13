@@ -5,9 +5,21 @@ import type { ComponentPropsWithoutRef } from 'react';
 import type { ColorKeys } from '@styles/theme';
 
 export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
+  /**
+   * Button의 색상입니다.
+   */
   color: ColorKeys;
+  /**
+   * Button의 텍스트 색상입니다.
+   */
   textColor?: ColorKeys;
+  /**
+   * Button의 스타일로 배경색 없이 아웃라인이 있는지, 배경색이 있고 아웃라인이 없는지 설정할 수 있습니다.
+   */
   variant: 'outlined' | 'filled';
+  /**
+   * Button의 크기입니다.
+   */
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 }
 

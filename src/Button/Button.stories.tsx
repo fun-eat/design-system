@@ -5,21 +5,6 @@ import Button from './Button';
 const meta: Meta<typeof Button> = {
   title: 'Button',
   component: Button,
-  argTypes: {
-    color: {
-      description: 'Button이 채워지는 배경 색상입니다.',
-    },
-    textColor: {
-      description: 'Button의 텍스트 색상입니다.',
-    },
-    variant: {
-      description:
-        'Button의 스타일로 배경색 없이 아웃라인이 있는지, 배경색이 있고 아웃라인이 없는지 설정할 수 있습니다.',
-    },
-    size: {
-      description: 'Button의 사이즈입니다.',
-    },
-  },
   args: {
     color: 'black',
     textColor: 'white',
