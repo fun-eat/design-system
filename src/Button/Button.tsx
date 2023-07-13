@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 
 import type { ComponentPropsWithoutRef } from 'react';
-import type { DefaultTheme } from 'styled-components/dist/types';
 
 import type { ColorKeys } from '@styles/theme';
 
@@ -24,12 +23,12 @@ export default Button;
 
 const buttonStyleTypeStyles = {
   outlined: (color: ColorKeys) => css`
-    border: 1px solid ${({ theme }: { theme: DefaultTheme }) => theme.colors[color]};
+    border: 1px solid ${({ theme }) => theme.colors[color]};
     background: transparent;
-    color: ${({ theme }: { theme: DefaultTheme }) => theme.colors[color]};
+    color: ${({ theme }) => theme.colors[color]};
   `,
   filled: (color: ColorKeys) => css`
-    background-color: ${({ theme }: { theme: DefaultTheme }) => theme.colors[color]};
+    background-color: ${({ theme }) => theme.colors[color]};
   `,
 };
 
