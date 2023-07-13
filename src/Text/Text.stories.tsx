@@ -6,23 +6,8 @@ const meta: Meta<typeof Text> = {
   title: 'Text',
   component: Text,
   argTypes: {
-    element: {
-      description: '대체할 HTML 태그입니다.',
-    },
-    size: {
-      description: '폰트 크기입니다.',
-    },
-    weight: {
-      description: '폰트 가중치입니다.',
-    },
-    lineHeight: {
-      description: '텍스트 높이입니다.',
-    },
-    color: {
-      description: '텍스트 색상입니다.',
-    },
-    align: {
-      description: '텍스트 정렬입니다.',
+    as: {
+      table: { disable: true },
     },
   },
   args: {

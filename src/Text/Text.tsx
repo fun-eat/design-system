@@ -11,11 +11,29 @@ type TextAligns = 'left' | 'center' | 'right';
 type TextWeights = 'light' | 'regular' | 'bold';
 
 interface TextStyleProps {
+  /**
+   * Text 컴포넌트의 HTML 태그입니다.
+   */
   element?: TextElement;
+  /**
+   * Text 컴포넌트의 폰트 크기입니다.
+   */
   size?: Sizes;
+  /**
+   * Text 컴포넌트의 폰트 가중치입니다.
+   */
   weight?: TextWeights;
+  /**
+   * Text 컴포넌트의 텍스트 높이입니다.
+   */
   lineHeight?: Sizes;
+  /**
+   * Text 컴포넌트의 텍스트 색상입니다.
+   */
   color?: string;
+  /**
+   * Text 컴포넌트의 텍스트 정렬입니다.
+   */
   align?: TextAligns;
 }
 
