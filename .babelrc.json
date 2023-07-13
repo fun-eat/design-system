@@ -12,5 +12,5 @@
     "@babel/preset-typescript",
     ["@babel/preset-react", { "runtime": "automatic" }]
   ],
-  "plugins": []
+  "plugins": ["babel-plugin-styled-components"]
 }
