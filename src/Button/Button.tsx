@@ -7,12 +7,12 @@ import type { ColorKeys } from '@styles/theme';
 
 export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
   color: ColorKeys;
-  textColor: ColorKeys;
+  textColor?: ColorKeys;
   variant: 'outlined' | 'filled';
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 }
 
-const Button = ({ color, textColor, variant = 'filled', size = 'md', children, ...props }: ButtonProps) => {
+const Button = ({ color, textColor = 'black', variant = 'filled', size = 'md', children, ...props }: ButtonProps) => {
   return (
     <ButtonContainer color={color} textColor={textColor} variant={variant} size={size} {...props}>
       {children}
@@ -36,28 +36,28 @@ const buttonStyleTypeStyles = {
 const buttonTypeStyles = {
   xs: css`
     padding: 6px 12px;
-    border-radius: 5px;
+    border-radius: ${({ theme }) => theme.borderRadius.xs};
     font-size: 0.75rem;
   `,
   sm: css`
     padding: 8px 16px;
-    border-radius: 5px;
-    font-size: 1.2rem;
+    border-radius: ${({ theme }) => theme.borderRadius.xs};
+    font-size: ${({ theme }) => theme.fontSizes.xs};
   `,
   md: css`
     padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 1.4rem;
+    border-radius: ${({ theme }) => theme.borderRadius.xs};
+    font-size: ${({ theme }) => theme.fontSizes.sm};
   `,
   lg: css`
     padding: 12px 24px;
-    border-radius: 7px;
-    font-size: 1.6rem;
+    border-radius: ${({ theme }) => theme.borderRadius.sm};
+    font-size: ${({ theme }) => theme.fontSizes.md};
   `,
   xl: css`
     padding: 18px 130px;
-    border-radius: 10px;
-    font-size: 2rem;
+    border-radius: ${({ theme }) => theme.borderRadius.md};
+    font-size: ${({ theme }) => theme.fontSizes.xl};
   `,
 };
 
