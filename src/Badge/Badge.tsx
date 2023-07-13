@@ -1,18 +1,18 @@
 import styled, { css } from 'styled-components';
 
 import type { Sizes } from '@types';
-import type { ComponentPropsWithoutRef } from 'react';
+import type { ComponentPropsWithoutRef, CSSProperties } from 'react';
 import type { RuleSet } from 'styled-components';
 
 export interface BadgeProps extends ComponentPropsWithoutRef<'div'> {
   /**
    * Badge 컴포넌트 내부 색상입니다.
    */
-  color: string;
+  color: CSSProperties['color'];
   /**
    * Badge 컴포넌트에 들어갈 텍스트의 색상입니다.
    */
-  textColor: string;
+  textColor: CSSProperties['color'];
   /**
    * Badge 컴포넌트에 들어갈 텍스트의 크기입니다.
    */
