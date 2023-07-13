@@ -10,6 +10,8 @@ const Divider = ({ variant = 'default', length = '100%', ...props }: DividerProp
   return <DividerContainer variant={variant} length={length} {...props} />;
 };
 
+export default Divider;
+
 const dividerStyles = {
   default: css`
     background: ${({ theme }) => theme.dividerColors.default};
@@ -27,5 +29,3 @@ const DividerContainer = styled.hr<DividerProps>`
   height: 1px;
   border: 0;
 `;
-
-export default Divider;
