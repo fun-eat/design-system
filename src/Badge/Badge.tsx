@@ -4,7 +4,7 @@ import type { Sizes } from '@types';
 import type { ComponentPropsWithoutRef } from 'react';
 import type { RuleSet } from 'styled-components';
 
-interface BadgeProps extends ComponentPropsWithoutRef<'div'> {
+export interface BadgeProps extends ComponentPropsWithoutRef<'div'> {
   /**
    * Badge 컴포넌트 내부 색상입니다.
    */
