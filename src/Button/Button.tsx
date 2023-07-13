@@ -20,6 +20,8 @@ const Button = ({ color, textColor, styleType = 'filled', size = 'md', children,
   );
 };
 
+export default Button;
+
 const buttonStyleTypeStyles = {
   outFilled: (color: ColorKeys) => css`
     border: 1px solid ${({ theme }: { theme: DefaultTheme }) => theme.colors[color]};
@@ -64,5 +66,3 @@ const ButtonContainer = styled.button<ButtonProps>`
   ${({ styleType, color }) => buttonStyleTypeStyles[styleType](color)};
   ${({ size }) => buttonTypeStyles[!size ? 'md' : size]};
 `;
-
-export default Button;
