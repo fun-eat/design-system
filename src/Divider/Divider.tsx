@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef } from 'react';
 import styled, { css } from 'styled-components';
 
-export interface DividerProps extends ComponentPropsWithoutRef<'div'> {
+export interface DividerProps extends ComponentPropsWithoutRef<'hr'> {
   variant?: 'default' | 'strong' | 'disabled';
   length?: string;
 }
@@ -12,18 +12,20 @@ const Divider = ({ variant = 'default', length = '100%', ...props }: DividerProp
 
 const dividerStyles = {
   default: css`
-    border-bottom: 1px solid ${({ theme }) => theme.dividerColors.default};
+    background: ${({ theme }) => theme.dividerColors.default};
   `,
   strong: css`
-    border-bottom: 1px solid ${({ theme }) => theme.dividerColors.strong};
+    background: ${({ theme }) => theme.dividerColors.strong};
   `,
   disabled: css`
-    border-bottom: 1px solid ${({ theme }) => theme.dividerColors.disabled};
+    background: ${({ theme }) => theme.dividerColors.disabled};
   `,
 };
 
-const DividerContainer = styled.div<DividerProps>`
+const DividerContainer = styled.hr<DividerProps>`
   ${({ variant }) => dividerStyles[!variant ? (variant = 'default') : variant]}
+  height: 1px;
+  border: 0;
 `;
 
 export default Divider;
