@@ -4,27 +4,27 @@ import Badge from './Badge';
 
 import theme from '@styles/theme';
 
-const meta = {
+const meta: Meta<typeof Badge> = {
   title: 'Badge',
   component: Badge,
   argTypes: {
     color: {
-      description: 'Badge 컴포넌트에 채워지는 색상',
+      description: 'Badge 컴포넌트에 채워지는 색상입니다.',
       control: {
         type: 'color',
       },
     },
     textColor: {
-      description: 'Badge 컴포넌트에 채워지는 색상',
+      description: 'Badge 컴포넌트의 텍스트 색상입니다.',
       control: {
         type: 'color',
       },
     },
     size: {
-      description: 'Badge 컴포넌트 내부 사이즈',
+      description: 'Badge 컴포넌트 사이즈입니다.',
     },
     children: {
-      description: 'Badge 컴포넌트 들어갈 내용',
+      description: 'Badge 컴포넌트에 들어갈 내용입니다.',
       control: {
         type: 'text',
       },
@@ -36,7 +36,7 @@ const meta = {
     size: 'sm',
     children: '뱃지 텍스트',
   },
-} satisfies Meta<typeof Badge>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

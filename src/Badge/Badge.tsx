@@ -1,4 +1,4 @@
-import { css, styled } from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import type { Sizes } from '@types';
 import type { ComponentPropsWithoutRef } from 'react';
@@ -20,7 +20,7 @@ const Badge = ({ color, textColor, size = 'sm', children, ...props }: BadgeProps
 
 export default Badge;
 
-const badgeSizeStyles: { [key in Sizes]: RuleSet<object> } = {
+const badgeSizeStyles: Record<Sizes, RuleSet<object>> = {
   xs: css`
     font-size: 1rem;
   `,
@@ -44,5 +44,5 @@ export const BadgeContainer = styled.div<Pick<BadgeProps, 'color' | 'textColor' 
   color: ${({ textColor }) => textColor};
   background: ${({ color }) => color};
   border-radius: 8px;
-  ${({ size }) => badgeSizeStyles[size ? size : 'sm']}
+  ${({ size }) => badgeSizeStyles[size ?? 'sm']}
 `;
