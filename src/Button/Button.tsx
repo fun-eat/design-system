@@ -33,6 +33,8 @@ const Button = ({ color, textColor = 'black', variant = 'filled', size = 'md', c
 
 export default Button;
 
+type ButtonStyleProps = Pick<ButtonProps, 'color' | 'textColor' | 'variant' | 'size'>;
+
 const buttonStyleTypeStyles = {
   outlined: (color: ColorKeys) => css`
     border: 1px solid ${({ theme }) => theme.colors[color]};
@@ -72,7 +74,7 @@ const buttonTypeStyles = {
   `,
 };
 
-const ButtonContainer = styled.button<ButtonProps>`
+const ButtonContainer = styled.button<ButtonStyleProps>`
   color: ${({ textColor }) => textColor};
   ${({ variant, color }) => buttonStyleTypeStyles[variant](color)};
   ${({ size }) => buttonTypeStyles[size ?? 'md']};
