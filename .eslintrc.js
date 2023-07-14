@@ -10,7 +10,7 @@ module.exports = {
     'plugin:storybook/recommended',
     'plugin:import/recommended',
   ],
-  ignorePatterns: ['*.js'],
+  ignorePatterns: ['*.js', 'dist'],
   overrides: [
     {
       env: {

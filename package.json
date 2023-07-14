@@ -31,8 +31,7 @@
   "scripts": {
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "build": "GENERATE_SOURCEMAP=false webpack --progress --mode production",
-    "publish": "rm -rf dist && mkdir dist && yarn build"
+    "build": "GENERATE_SOURCEMAP=false webpack --progress --mode production"
   },
   "peerDependencies": {
     "react": ">=18.x",
