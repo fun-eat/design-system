@@ -50,8 +50,8 @@ const badgeSizeStyles: Record<Sizes, RuleSet<object>> = {
 export const BadgeContainer = styled.div<Pick<BadgeProps, 'color' | 'textColor' | 'size'>>`
   width: fit-content;
   padding: 8px 12px;
-  color: ${({ textColor }) => textColor};
-  background: ${({ color }) => color};
   border-radius: 8px;
+  background: ${({ color }) => color};
+  color: ${({ textColor }) => textColor};
   ${({ size }) => badgeSizeStyles[size ?? 'sm']}
 `;
