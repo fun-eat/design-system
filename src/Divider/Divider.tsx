@@ -9,14 +9,16 @@ export interface DividerProps extends ComponentPropsWithoutRef<'hr'> {
   /**
    * Divider 컴포넌트의 길이입니다.
    */
-  length?: string;
+  width?: string;
 }
 
-const Divider = ({ variant = 'default', length = '100%', ...props }: DividerProps) => {
-  return <DividerContainer variant={variant} length={length} {...props} />;
+const Divider = ({ variant = 'default', width = '100%', ...props }: DividerProps) => {
+  return <DividerContainer variant={variant} width={width} {...props} />;
 };
 
 export default Divider;
+
+type DividerStyleProps = Pick<DividerProps, 'variant' | 'width'>;
 
 const dividerStyles = {
   default: css`
@@ -30,8 +32,9 @@ const dividerStyles = {
   `,
 };
 
-const DividerContainer = styled.hr<DividerProps>`
+const DividerContainer = styled.hr<DividerStyleProps>`
   ${({ variant }) => dividerStyles[variant ?? 'default']};
   height: 1px;
+  width: ${({ width }) => width};
   border: 0;
 `;
