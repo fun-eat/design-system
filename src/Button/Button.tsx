@@ -6,19 +6,19 @@ import type { ColorKeys } from '@styles/theme';
 
 export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
   /**
-   * Button의 색상입니다.
+   * Button 컴포넌트의 색상입니다.
    */
   color: ColorKeys;
   /**
-   * Button의 텍스트 색상입니다.
+   * Button 컴포넌트의 텍스트 색상입니다.
    */
   textColor?: ColorKeys;
   /**
-   * Button의 스타일로 배경색 없이 아웃라인이 있는지, 배경색이 있고 아웃라인이 없는지 설정할 수 있습니다.
+   * Button 컴포넌트의 스타일로 배경색 없이 아웃라인이 있는지, 배경색이 있고 아웃라인이 없는지 설정할 수 있습니다.
    */
   variant: 'outlined' | 'filled';
   /**
-   * Button의 크기입니다.
+   * Button 컴포넌트의 크기입니다.
    */
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 }
@@ -48,22 +48,22 @@ const buttonTypeStyles = {
   xs: css`
     padding: 6px 12px;
     border-radius: ${({ theme }) => theme.borderRadius.xs};
-    font-size: 0.75rem;
+    font-size: ${({ theme }) => theme.fontSizes.xs};
   `,
   sm: css`
     padding: 8px 16px;
     border-radius: ${({ theme }) => theme.borderRadius.xs};
-    font-size: ${({ theme }) => theme.fontSizes.xs};
+    font-size: ${({ theme }) => theme.fontSizes.sm};
   `,
   md: css`
     padding: 10px 20px;
     border-radius: ${({ theme }) => theme.borderRadius.xs};
-    font-size: ${({ theme }) => theme.fontSizes.sm};
+    font-size: ${({ theme }) => theme.fontSizes.md};
   `,
   lg: css`
     padding: 12px 24px;
     border-radius: ${({ theme }) => theme.borderRadius.sm};
-    font-size: ${({ theme }) => theme.fontSizes.md};
+    font-size: ${({ theme }) => theme.fontSizes.lg};
   `,
   xl: css`
     padding: 18px 130px;
