@@ -2,8 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import type { PropsWithChildren } from 'react';
 
 import Spacing from './Spacing';
-
-import theme from '@styles/theme';
+import theme from '../styles/theme';
 
 const meta: Meta<typeof Spacing> = {
   title: 'Spacing',

@@ -3,7 +3,7 @@ import type { ComponentPropsWithRef, ForwardedRef } from 'react';
 import { createPortal } from 'react-dom';
 import styled from 'styled-components';
 
-import { slideUp } from '@styles/animations';
+import { slideUp } from '../styles/animations';
 
 export interface BottomSheetProps extends ComponentPropsWithRef<'dialog'> {
   close: () => void;

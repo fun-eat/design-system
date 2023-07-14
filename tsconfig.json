@@ -10,11 +10,8 @@
     "strict": true,
     "skipLibCheck": true,
     "jsx": "react-jsx",
-    "outDir": "./dist",
-    "baseUrl": ".",
-    "paths": {
-      "@*": ["src/*"]
-    }
+    "declaration": true,
+    "outDir": "./dist"
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]
