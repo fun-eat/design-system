@@ -1,6 +1,5 @@
-import styled, { css } from 'styled-components';
-
 import type { ComponentPropsWithoutRef } from 'react';
+import styled, { css } from 'styled-components';
 
 import type { ColorKeys } from '@styles/theme';
 

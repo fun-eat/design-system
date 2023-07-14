@@ -1,8 +1,7 @@
 import { forwardRef } from 'react';
+import type { ComponentPropsWithRef, ForwardedRef } from 'react';
 import { createPortal } from 'react-dom';
 import styled from 'styled-components';
-
-import type { ComponentPropsWithRef, ForwardedRef } from 'react';
 
 import { slideUp } from '@styles/animations';
 
