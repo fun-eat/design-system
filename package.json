@@ -1,7 +1,7 @@
 {
   "name": "@fun-eat/design-system",
   "description": "펀잇 디자인시스템 라이브러리",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "./dist/index.js",
   "license": "MIT",
   "repository": {
