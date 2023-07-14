@@ -98,4 +98,6 @@ const theme: DefaultTheme = {
   borderRadius,
 };
 
+export type ColorKeys = keyof typeof colors;
+
 export default theme;
