@@ -1,7 +1,7 @@
 {
   "name": "@fun-eat/design-system",
   "description": "펀잇 디자인시스템 라이브러리",
-  "version": "0.0.3",
+  "version": "0.0.1",
   "main": "./dist/index.js",
   "license": "MIT",
   "repository": {
@@ -31,7 +31,8 @@
   "scripts": {
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "build": "GENERATE_SOURCEMAP=false webpack --progress --mode production"
+    "build": "GENERATE_SOURCEMAP=false webpack --progress --mode production",
+    "publish": "rm -rf dist && mkdir dist && yarn build"
   },
   "peerDependencies": {
     "react": ">=18.x",
