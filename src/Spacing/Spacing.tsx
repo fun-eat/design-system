@@ -1,6 +1,5 @@
-import styled, { css } from 'styled-components';
-
 import type { ComponentPropsWithoutRef } from 'react';
+import styled, { css } from 'styled-components';
 import type { RuleSet } from 'styled-components';
 
 type SpacingDirections = 'vertical' | 'horizontal';

@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import type { PropsWithChildren } from 'react';
 
 import Spacing from './Spacing';
-
-import type { PropsWithChildren } from 'react';
 
 import theme from '@styles/theme';
 
