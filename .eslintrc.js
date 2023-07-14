@@ -56,7 +56,7 @@ module.exports = {
     'import/order': [
       'error',
       {
-        groups: ['builtin', 'external', 'internal', ['parent', 'sibling', 'index'], 'object', 'type', 'unknown'],
+        groups: ['builtin', 'external', 'internal', ['parent', 'sibling', 'index'], 'object', 'unknown'],
         pathGroups: [
           {
             pattern: '@styles/**',
@@ -65,6 +65,10 @@ module.exports = {
           {
             pattern: '@storybook/**',
             group: 'external',
+          },
+          {
+            pattern: '@type',
+            group: 'unknown',
           },
         ],
         pathGroupsExcludedImportTypes: ['unknown'],
