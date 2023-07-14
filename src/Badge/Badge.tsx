@@ -29,6 +29,8 @@ const Badge = ({ color, textColor, size = 'sm', children, ...props }: BadgeProps
 
 export default Badge;
 
+type BadgeStyleProps = Pick<BadgeProps, 'color' | 'textColor' | 'size'>;
+
 const badgeSizeStyles: Record<Sizes, RuleSet<object>> = {
   xs: css`
     font-size: 1rem;
@@ -47,7 +49,7 @@ const badgeSizeStyles: Record<Sizes, RuleSet<object>> = {
   `,
 };
 
-export const BadgeContainer = styled.div<Pick<BadgeProps, 'color' | 'textColor' | 'size'>>`
+export const BadgeContainer = styled.div<BadgeStyleProps>`
   width: fit-content;
   padding: 8px 12px;
   border-radius: 8px;
