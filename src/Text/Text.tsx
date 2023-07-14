@@ -1,9 +1,8 @@
+import type { CSSProperties, ElementType } from 'react';
 import styled from 'styled-components';
 
-import type { OverridableComponentPropsWithoutRef, Sizes } from '@type';
-import type { CSSProperties, ElementType } from 'react';
-
 import theme from '@styles/theme';
+import type { OverridableComponentPropsWithoutRef, Sizes } from '@type';
 
 type TextElement = Extract<ElementType, 'p' | 'span'>;
 type TextAligns = 'left' | 'center' | 'right';
