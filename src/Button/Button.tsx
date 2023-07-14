@@ -1,6 +1,8 @@
 import type { ComponentPropsWithoutRef } from 'react';
 import styled, { css } from 'styled-components';
 
+import type { Sizes } from '@types';
+
 import type { ColorKeys } from '@styles/theme';
 
 export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
@@ -19,7 +21,7 @@ export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
   /**
    * Button 컴포넌트의 크기입니다.
    */
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  size?: Sizes;
 }
 
 const Button = ({ color, textColor = 'black', variant = 'filled', size = 'md', children, ...props }: ButtonProps) => {
