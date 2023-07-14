@@ -2,7 +2,7 @@ import type { ComponentPropsWithoutRef, CSSProperties } from 'react';
 import styled, { css } from 'styled-components';
 import type { RuleSet } from 'styled-components';
 
-import type { Sizes } from '@types';
+import type { Sizes } from '../types';
 
 export interface BadgeProps extends ComponentPropsWithoutRef<'div'> {
   /**

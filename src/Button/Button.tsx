@@ -1,9 +1,8 @@
 import type { ComponentPropsWithoutRef } from 'react';
 import styled, { css } from 'styled-components';
 
-import type { Sizes } from '@types';
-
-import type { ColorKeys } from '@styles/theme';
+import type { ColorKeys } from '../styles/theme';
+import type { Sizes } from '../types';
 
 export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
   /**
