@@ -47,7 +47,7 @@ export const XLarge: Story = {
   },
 };
 
-export const OutFilled: Story = {
+export const Outlined: Story = {
   args: {
     variant: 'outlined',
   },
