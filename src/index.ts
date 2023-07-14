@@ -1,4 +1,5 @@
 export { default as FunEatProvider } from './FunEatProvider';
+export { default as theme } from './styles/theme';
 
 export { default as Badge } from './Badge';
 export { default as BottomSheet } from './BottomSheet';
