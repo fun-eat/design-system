@@ -1,7 +1,15 @@
 import type { ComponentPropsWithoutRef } from 'react';
+import type { Link as RouterLink, NavLink, LinkProps as RouterLinkProps, NavLinkProps } from 'react-router-dom';
 import styled from 'styled-components';
 
-export interface LinkProps extends ComponentPropsWithoutRef<'a'> {
+type LinkElement = 'a' | typeof RouterLink | typeof NavLink;
+type LinkAttributes<T extends LinkElement> = T extends typeof RouterLink
+  ? RouterLinkProps
+  : T extends typeof NavLink
+  ? NavLinkProps
+  : ComponentPropsWithoutRef<'a'>;
+
+export interface LinkStyleProps extends ComponentPropsWithoutRef<'a'> {
   /**
    * Link 컴포넌트의 링크 클릭 시 새로운 탭으로 열도록 선택할 수 있습니다.
    */
@@ -12,7 +20,15 @@ export interface LinkProps extends ComponentPropsWithoutRef<'a'> {
   block?: boolean;
 }
 
-const Link = ({ children, isExternal = false, block = false, css, ...props }: LinkProps) => {
+export type LinkProps<T extends LinkElement> = LinkAttributes<T> & LinkStyleProps & { as?: T };
+
+const Link = <T extends LinkElement = 'a'>({
+  children,
+  isExternal = false,
+  block = false,
+  css,
+  ...props
+}: LinkProps<T>) => {
   return (
     <LinkContainer
       block={block}
@@ -27,8 +43,6 @@ const Link = ({ children, isExternal = false, block = false, css, ...props }: Li
 };
 
 export default Link;
-
-type LinkStyleProps = Pick<LinkProps, 'block'>;
 
 const LinkContainer = styled.a<LinkStyleProps>`
   display: ${({ block }) => (block ? 'block' : undefined)};
