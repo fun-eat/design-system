@@ -99,5 +99,6 @@ const theme: DefaultTheme = {
 };
 
 export type ColorKeys = keyof typeof colors;
+export type FontWeightKeys = keyof typeof fontWeights;
 
 export default theme;
