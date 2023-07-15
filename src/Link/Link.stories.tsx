@@ -9,9 +9,17 @@ const meta: Meta<typeof Link> = {
     href: {
       table: { disable: true },
     },
+    css: {
+      control: {
+        type: 'text',
+      },
+    },
+    as: {
+      table: { disable: true },
+    },
   },
   args: {
-    children: '외부 링크로 이동합니다.',
+    children: '링크로 이동합니다.',
     href: '#',
   },
 };
@@ -27,9 +35,10 @@ export const Block: Story = {
       <Link href="#" block isExternal>
         {children}
       </Link>
-      <Link href="#" block>
+      <Link href="#" isExternal>
         {children}
       </Link>
+      <Link href="#">{children}</Link>
     </>
   ),
 };
