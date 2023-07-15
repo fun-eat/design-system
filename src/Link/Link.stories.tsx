@@ -5,6 +5,11 @@ import Link from './Link';
 const meta: Meta<typeof Link> = {
   title: 'Link',
   component: Link,
+  argTypes: {
+    href: {
+      table: { disable: true },
+    },
+  },
   args: {
     children: '외부 링크로 이동합니다.',
     href: '#',
