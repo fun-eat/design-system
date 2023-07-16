@@ -134,10 +134,10 @@ HTML heading 태그를 사용하는 컴포넌트입니다.
 ### Example
 
 ```jsx
-<Heading />
-<Heading as="h2" />
-<Heading as="h3" size="xl" weight='regular' />
-<Heading as="h3" css='color: red;' />
+<Heading>로망오우타해황</Heading>
+<Heading as="h2">로망오우타해황</Heading>
+<Heading as="h3" size="xl" weight='regular'>로망오우타해황</Heading>
+<Heading as="h3" css='color: red;'>로망오우타해황</Heading>
 ```
 
 ## Spacing
