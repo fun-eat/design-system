@@ -8,9 +8,6 @@ import type { OverridableComponentPropsWithoutRef, Sizes } from '../types';
 type HeadingElement = Extract<ElementType, 'h1' | 'h2' | 'h3'>;
 
 interface HeadingStyleProps {
-  /**
-   * Heading 컴포넌트의 HTML 태그입니다.
-   */
   element?: HeadingElement;
   /**
    * Heading 컴포넌트의 폰트 크기입니다.
@@ -24,9 +21,9 @@ interface HeadingStyleProps {
 
 export type HeadingProps<T extends HeadingElement> = OverridableComponentPropsWithoutRef<T, HeadingStyleProps>;
 
-const Heading = <T extends HeadingElement = 'h1'>({ children, element, size, css, ...props }: HeadingProps<T>) => {
+const Heading = <T extends HeadingElement = 'h1'>({ children, size, css, as, ...props }: HeadingProps<T>) => {
   return (
-    <HeadingContainer as={element} element={element} size={size} css={css} {...props}>
+    <HeadingContainer as={as} element={as} size={size} css={css} {...props}>
       {children}
     </HeadingContainer>
   );

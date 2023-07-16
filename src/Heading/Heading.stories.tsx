@@ -6,11 +6,14 @@ const meta: Meta<typeof Heading> = {
   title: 'Heading',
   component: Heading,
   argTypes: {
+    element: {
+      table: { disable: true },
+    },
     css: {
       control: { type: 'text' },
     },
     as: {
-      table: { disable: true },
+      description: 'Heading 컴포넌트의 HTML 태그입니다.',
     },
   },
   args: {
@@ -26,9 +29,9 @@ export const Default: Story = {};
 export const Variant: Story = {
   render: ({ children }) => (
     <>
-      <Heading element="h1">{children}</Heading>
-      <Heading element="h2">{children}</Heading>
-      <Heading element="h3">{children}</Heading>
+      <Heading as="h1">{children}</Heading>
+      <Heading as="h2">{children}</Heading>
+      <Heading as="h3">{children}</Heading>
     </>
   ),
 };
