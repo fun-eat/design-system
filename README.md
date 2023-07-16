@@ -117,6 +117,34 @@ return (
 <Divider />
 ```
 
+## Link
+
+다른 URL로 연결하는 컴포넌트입니다.
+`react-router-dom`과 함께 사용할 수 있습니다.
+
+### Props
+
+| props       | value                                                                                           | description                                                           |
+| ----------- | ----------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| isExternal? | boolean<br/>(default: false)                                                                    | Link 컴포넌트의 링크 클릭 시 새로운 탭으로 열도록 선택할 수 있습니다. |
+| block       | boolean<br/>(default: false)                                                                    | Link 컴포넌트의 디스플레이 속성이 block인지 선택할 수 있습니다.       |
+| css?        | CSSProp                                                                                         | Link 컴포넌트에 적용할 CSS 스타일입니다.                              |
+| as?         | `a` ,`Link(react-router-dom의 Link)`, `NavLink(react-router-dom의 NavLink)`<br />(default: `a`) | Link 컴포넌트로 사용할 HTML 태그 또는 외부 링크 컴포넌트입니다.       |
+
+### Example
+
+```jsx
+<Link href='#'>링크로 이동합니다.</Link>
+<Link href='#' isExternal></Link>
+<Link href='#' isExternal block>링크로 이동합니다.</Link>
+
+// react-router-dom을 사용한 예시
+import {Link as RouterLink, NavLink} from 'react-router-dom'
+
+<Link as={RouterLink} to='/'>링크로 이동합니다.</Link>
+<Link as={NavLink} to='/' isExternal>링크로 이동합니다.</Link>
+```
+
 ## Spacing
 
 화면 구역을 나누는 여백 컴포넌트입니다.
