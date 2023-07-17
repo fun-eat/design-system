@@ -12,9 +12,8 @@
     "jsx": "react-jsx",
     "declaration": true,
     "outDir": "./dist",
-    "rootDir": "src",
-    "typeRoots": ["node_modules/@types", "styles/styled.d.ts"]
+    "rootDir": "src"
   },
-  "include": ["**/*.tsx", "**/*.ts", "styles/styled.d.ts"],
+  "include": ["**/*.tsx", "**/*.ts", "styled.d.ts"],
   "exclude": ["node_modules", "dist", "**/*.stories.tsx"]
 }
