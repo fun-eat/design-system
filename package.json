@@ -1,7 +1,7 @@
 {
   "name": "@fun-eat/design-system",
   "description": "펀잇 디자인시스템 라이브러리",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
