@@ -11,7 +11,7 @@ import type {
   FontWeights,
   LineHeights,
   TextColors,
-} from './theme';
+} from './styles/theme';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
