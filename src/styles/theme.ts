@@ -1,5 +1,3 @@
-import type { DefaultTheme } from 'styled-components';
-
 export type Colors = typeof colors;
 export type TextColors = typeof textColors;
 export type BorderColors = typeof borderColors;
@@ -84,7 +82,7 @@ const borderRadius = {
   xl: '14px',
 } as const;
 
-const theme: DefaultTheme = {
+const theme = {
   colors,
   textColors,
   borderColors,
@@ -100,5 +98,7 @@ const theme: DefaultTheme = {
 
 export type ColorKeys = keyof typeof colors;
 export type FontWeightKeys = keyof typeof fontWeights;
+
+export type Theme = typeof theme;
 
 export default theme;
