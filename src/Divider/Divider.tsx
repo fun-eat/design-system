@@ -12,8 +12,8 @@ export interface DividerProps extends ComponentPropsWithoutRef<'hr'> {
   width?: string;
 }
 
-const Divider = ({ variant = 'default', width = '100%', ...props }: DividerProps) => {
-  return <DividerContainer variant={variant} width={width} {...props} />;
+const Divider = ({ variant = 'default', width = '100%', css, ...props }: DividerProps) => {
+  return <DividerContainer variant={variant} width={width} css={css} {...props} />;
 };
 
 export default Divider;

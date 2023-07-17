@@ -19,9 +19,9 @@ export interface BadgeProps extends ComponentPropsWithoutRef<'div'> {
   size?: Sizes;
 }
 
-const Badge = ({ color, textColor, size = 'sm', children, ...props }: BadgeProps) => {
+const Badge = ({ color, textColor, size = 'sm', children, css, ...props }: BadgeProps) => {
   return (
-    <BadgeContainer color={color} textColor={textColor} size={size} {...props}>
+    <BadgeContainer color={color} textColor={textColor} size={size} css={css} {...props}>
       <span>{children}</span>
     </BadgeContainer>
   );

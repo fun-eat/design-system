@@ -22,6 +22,9 @@ const meta: Meta<typeof Badge> = {
         type: 'text',
       },
     },
+    css: {
+      control: { type: 'text' },
+    },
   },
   args: {
     color: theme.colors.black,

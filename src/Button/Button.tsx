@@ -23,9 +23,17 @@ export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
   size?: Sizes;
 }
 
-const Button = ({ color, textColor = 'black', variant = 'filled', size = 'md', children, ...props }: ButtonProps) => {
+const Button = ({
+  color,
+  textColor = 'black',
+  variant = 'filled',
+  size = 'md',
+  children,
+  css,
+  ...props
+}: ButtonProps) => {
   return (
-    <ButtonContainer color={color} textColor={textColor} variant={variant} size={size} {...props}>
+    <ButtonContainer color={color} textColor={textColor} variant={variant} size={size} css={css} {...props}>
       {children}
     </ButtonContainer>
   );
