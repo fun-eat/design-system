@@ -117,6 +117,29 @@ return (
 <Divider />
 ```
 
+## Heading
+
+HTML heading 태그를 사용하는 컴포넌트입니다.
+
+### Props
+
+| props     | value                                 | description                                 |
+| --------- | ------------------------------------- | ------------------------------------------- |
+| children? | ReactNode                             | Heading 컴포넌트의 자식 컴포넌트입니다.     |
+| size?     | `xs`, `sm`, `md`, `lg`, `xl`          | Heading 컴포넌트의 폰트 크기입니다.         |
+| weight?   | `light`, `regular`, `bold`            | Heading 컴포넌트의 폰트 가중치입니다.       |
+| css?      | CSSProp                               | Heading 컴포넌트에 적용할 CSS 스타일입니다. |
+| as?       | `h1` ,`h2`, `h3`<br />(default: `h1`) | Heading 컴포넌트의 HTML 태그입니다.         |
+
+### Example
+
+```jsx
+<Heading>로망오우타해황</Heading>
+<Heading as="h2">로망오우타해황</Heading>
+<Heading as="h3" size="xl" weight='regular'>로망오우타해황</Heading>
+<Heading as="h3" css='color: red;'>로망오우타해황</Heading>
+```
+
 ## Spacing
 
 화면 구역을 나누는 여백 컴포넌트입니다.
