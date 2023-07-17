@@ -1,12 +1,12 @@
 import type { CSSProperties, ElementType } from 'react';
 import styled from 'styled-components';
 
+import type { FontWeightKeys } from '../styles/theme';
 import theme from '../styles/theme';
 import type { Sizes, OverridableComponentPropsWithoutRef } from '../types';
 
 type TextElement = Extract<ElementType, 'p' | 'span'>;
 type TextAligns = 'left' | 'center' | 'right';
-type TextWeights = 'light' | 'regular' | 'bold';
 
 interface TextStyleProps {
   /**
@@ -20,7 +20,7 @@ interface TextStyleProps {
   /**
    * Text 컴포넌트의 폰트 가중치입니다.
    */
-  weight?: TextWeights;
+  weight?: FontWeightKeys;
   /**
    * Text 컴포넌트의 텍스트 높이입니다.
    */
