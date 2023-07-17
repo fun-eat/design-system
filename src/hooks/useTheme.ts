@@ -1,6 +1,8 @@
 import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 
+import type { Theme } from '../styles/theme';
+
 const useTheme = () => {
   const theme = useContext(ThemeContext);
 
@@ -8,7 +10,7 @@ const useTheme = () => {
     throw new Error('theme을 사용하려면 App을 FunEatProvider로 감싸주세요.');
   }
 
-  return theme;
+  return theme as Theme;
 };
 
 export default useTheme;
