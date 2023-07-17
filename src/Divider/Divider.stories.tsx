@@ -5,6 +5,11 @@ import Divider from './Divider';
 const meta: Meta<typeof Divider> = {
   title: 'Divider',
   component: Divider,
+  argTypes: {
+    css: {
+      control: { type: 'text' },
+    },
+  },
 };
 
 export default meta;
