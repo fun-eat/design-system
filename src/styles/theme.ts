@@ -97,6 +97,7 @@ const theme = {
 };
 
 export type ColorKeys = keyof typeof colors;
+export type TextColorKeys = keyof typeof textColors;
 export type FontWeightKeys = keyof typeof fontWeights;
 
 export type Theme = typeof theme;
