@@ -64,31 +64,31 @@ const checkSizeStyles: Record<Sizes, RuleSet<object>> = {
   xs: css`
     width: 4px;
     height: 8px;
-    border: solid ${({ theme }) => theme.colors.white};
+    border: solid ${({ theme }) => theme.colors.gray4};
     border-width: 0 2px 2px 0;
   `,
   sm: css`
     width: 6px;
     height: 12px;
-    border: solid ${({ theme }) => theme.colors.white};
+    border: solid ${({ theme }) => theme.colors.gray4};
     border-width: 0 2px 2px 0;
   `,
   md: css`
     width: 6px;
     height: 12px;
-    border: solid ${({ theme }) => theme.colors.white};
+    border: solid ${({ theme }) => theme.colors.gray4};
     border-width: 0 3px 3px 0;
   `,
   lg: css`
     width: 8px;
     height: 16px;
-    border: solid ${({ theme }) => theme.colors.white};
+    border: solid ${({ theme }) => theme.colors.gray4};
     border-width: 0 3px 3px 0;
   `,
   xl: css`
     width: 10px;
     height: 20px;
-    border: solid ${({ theme }) => theme.colors.white};
+    border: solid ${({ theme }) => theme.colors.gray4};
     border-width: 0 4px 4px 0;
   `,
 };
@@ -106,6 +106,7 @@ const CheckboxWrapper = styled.input<CheckboxStyleProps>`
 
   &:checked + span {
     background: ${({ theme }) => theme.colors.primary};
+    border: none;
   }
 
   &:checked + span::after {
