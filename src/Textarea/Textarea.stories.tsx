@@ -11,9 +11,9 @@ const meta: Meta<typeof Textarea> = {
       control: 'radio',
       options: ['both', 'horizontal', 'vertical', 'none'],
     },
-    focusBorderColor: {
-      description: 'Textarea 컴포넌트 포커스 시 border 색상입니다.',
-      control: 'color',
+    placeholder: {
+      description: 'Textarea 컴포넌트의 placeholder입니다.',
+      control: 'text',
     },
   },
 };
@@ -22,3 +22,9 @@ export default meta;
 type Story = StoryObj<typeof Textarea>;
 
 export const Default: Story = {};
+
+export const WithPlaceholder: Story = {
+  args: {
+    placeholder: '최소 20자 이상 입력해주세요.',
+  },
+};
