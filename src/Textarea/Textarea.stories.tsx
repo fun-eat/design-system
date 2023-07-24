@@ -3,6 +3,7 @@ import type { ChangeEventHandler } from 'react';
 import { useState } from 'react';
 
 import Textarea from './Textarea';
+import theme from '../styles/theme';
 import Text from '../Text/Text';
 
 const meta: Meta<typeof Textarea> = {
@@ -42,12 +43,12 @@ export const Controlled: Story = {
     };
 
     return (
-      <>
-        <Textarea value={value} onChange={handleInputChange} maxLength={maxLength} />
-        <Text>
-          작성한 길이: {value.length} / {maxLength}
+      <div style={{ position: 'relative' }}>
+        <Textarea value={value} rows={10} onChange={handleInputChange} maxLength={maxLength} />
+        <Text style={{ position: 'absolute', right: 0 }} color={theme.textColors.info}>
+          작성한 글자수: {value.length} / {maxLength}
         </Text>
-      </>
+      </div>
     );
   },
 };
