@@ -50,6 +50,7 @@ const dividerColors = {
 
 const backgroundColors = {
   default: colors.white,
+  light: colors.gray1,
 } as const;
 
 const fontSizes = {
