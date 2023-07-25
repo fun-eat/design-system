@@ -2,9 +2,9 @@ import { keyframes } from 'styled-components';
 
 export const slideUp = keyframes`
 0% {
-  transform: translateY(100%);
+  bottom:-300px
 }
 100% {
-  transform: translateY(0);
+  bottom: 0;
 }
 `;
