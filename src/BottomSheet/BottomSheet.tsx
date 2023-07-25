@@ -6,12 +6,12 @@ import styled from 'styled-components';
 import { slideUp } from '../styles/animations';
 
 export interface BottomSheetProps extends ComponentPropsWithRef<'dialog'> {
-  maxWidth: number;
+  maxWidth?: string;
   close: () => void;
 }
 
 const BottomSheet = (
-  { maxWidth, close, children, ...props }: BottomSheetProps,
+  { maxWidth = '100%', close, children, ...props }: BottomSheetProps,
   ref: ForwardedRef<HTMLDialogElement>
 ) => {
   return createPortal(
@@ -47,7 +47,7 @@ const ModalWrapper = styled.div<ModalWrapperStyleProps>`
   position: fixed;
   bottom: 0;
   left: 0;
-  width: ${({ maxWidth }) => maxWidth}px;
+  width: ${({ maxWidth }) => maxWidth};
   height: fit-content;
   padding: 12px;
   border-radius: 12px 12px 0px 0px;
