@@ -22,7 +22,7 @@ export interface BadgeProps extends ComponentPropsWithoutRef<'div'> {
 const Badge = ({ color, textColor, size = 'sm', children, css, ...props }: BadgeProps) => {
   return (
     <BadgeContainer color={color} textColor={textColor} size={size} css={css} {...props}>
-      <span>{children}</span>
+      {children}
     </BadgeContainer>
   );
 };
@@ -49,8 +49,7 @@ const badgeSizeStyles: Record<Sizes, RuleSet<object>> = {
   `,
 };
 
-export const BadgeContainer = styled.div<BadgeStyleProps>`
-  width: fit-content;
+export const BadgeContainer = styled.span<BadgeStyleProps>`
   padding: 8px 12px;
   border-radius: 8px;
   background: ${({ color }) => color};
