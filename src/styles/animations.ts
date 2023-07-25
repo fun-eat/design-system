@@ -8,3 +8,12 @@ export const slideUp = keyframes`
     bottom: 0;
   }
 `;
+
+export const slideDown = keyframes`
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom:-300px
+  }
+`;

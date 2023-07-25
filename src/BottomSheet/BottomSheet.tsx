@@ -1,9 +1,9 @@
-import { forwardRef } from 'react';
+import { forwardRef, useCallback, useState } from 'react';
 import type { ComponentPropsWithRef, ForwardedRef } from 'react';
 import { createPortal } from 'react-dom';
 import styled from 'styled-components';
 
-import { slideUp } from '../styles/animations';
+import { slideDown, slideUp } from '../styles/animations';
 
 export interface BottomSheetProps extends ComponentPropsWithRef<'dialog'> {
   maxWidth?: string;
@@ -14,10 +14,24 @@ const BottomSheet = (
   { maxWidth = '100%', close, children, ...props }: BottomSheetProps,
   ref: ForwardedRef<HTMLDialogElement>
 ) => {
+  const [isClosing, setIsClosing] = useState(false);
+
+  const closeAnimated = useCallback(() => {
+    setIsClosing(true);
+
+    const timer = setTimeout(() => {
+      setIsClosing(false);
+      close();
+      clearTimeout(timer);
+    }, 200);
+  }, []);
+
   return createPortal(
     <ModalDialog ref={ref} {...props}>
-      <BackDrop onClick={close} />
-      <ModalWrapper maxWidth={maxWidth}>{children}</ModalWrapper>
+      <BackDrop onClick={closeAnimated} />
+      <ModalWrapper maxWidth={maxWidth} isClosing={isClosing}>
+        {children}
+      </ModalWrapper>
     </ModalDialog>,
     document.body
   );
@@ -25,7 +39,9 @@ const BottomSheet = (
 
 export default forwardRef(BottomSheet);
 
-type ModalWrapperStyleProps = Pick<BottomSheetProps, 'maxWidth'>;
+type ModalWrapperStyleProps = Pick<BottomSheetProps, 'maxWidth'> & {
+  isClosing: boolean;
+};
 
 const ModalDialog = styled.dialog`
   border: none;
@@ -52,5 +68,5 @@ const ModalWrapper = styled.div<ModalWrapperStyleProps>`
   padding: 12px;
   border-radius: 12px 12px 0px 0px;
   background: ${({ theme }) => theme.colors.white};
-  animation: ${slideUp} 0.5s;
+  animation: ${({ isClosing }) => (isClosing ? slideDown : slideUp)} 0.5s;
 `;
