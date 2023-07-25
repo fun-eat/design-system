@@ -6,20 +6,26 @@ import styled from 'styled-components';
 import { slideUp } from '../styles/animations';
 
 export interface BottomSheetProps extends ComponentPropsWithRef<'dialog'> {
+  maxWidth?: string;
   close: () => void;
 }
 
-const BottomSheet = ({ children, close, ...props }: BottomSheetProps, ref: ForwardedRef<HTMLDialogElement>) => {
+const BottomSheet = (
+  { maxWidth = '100%', close, children, ...props }: BottomSheetProps,
+  ref: ForwardedRef<HTMLDialogElement>
+) => {
   return createPortal(
     <ModalDialog ref={ref} {...props}>
       <BackDrop onClick={close} />
-      <ModalWrapper>{children}</ModalWrapper>
+      <ModalWrapper maxWidth={maxWidth}>{children}</ModalWrapper>
     </ModalDialog>,
     document.body
   );
 };
 
 export default forwardRef(BottomSheet);
+
+type ModalWrapperStyleProps = Pick<BottomSheetProps, 'maxWidth'>;
 
 const ModalDialog = styled.dialog`
   border: none;
@@ -37,11 +43,11 @@ const BackDrop = styled.div`
   opacity: 0.3;
 `;
 
-const ModalWrapper = styled.div`
+const ModalWrapper = styled.div<ModalWrapperStyleProps>`
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: ${({ maxWidth }) => maxWidth};
   height: fit-content;
   padding: 12px;
   border-radius: 12px 12px 0px 0px;
