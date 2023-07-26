@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { useEffect, useRef } from 'react';
 
 import BottomSheet from './BottomSheet';
+import { useBottomSheet } from './useBottomSheet';
 
 const meta: Meta<typeof BottomSheet> = {
   title: 'BottomSheet',
@@ -21,24 +21,38 @@ const meta: Meta<typeof BottomSheet> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof BottomSheet>;
 
 export const Default: Story = {
   render: () => {
-    const ref = useRef<HTMLDialogElement>(null);
-
-    useEffect(() => {
-      ref.current?.showModal();
-    }, []);
-
-    const closeBottomSheet = () => {
-      ref.current?.close();
-    };
+    const { ref, isClosing, handleOpenBottomSheet, handleCloseBottomSheet } = useBottomSheet();
 
     return (
-      <BottomSheet close={closeBottomSheet} ref={ref}>
-        <div>바텀시트 컴포넌트</div>
-      </BottomSheet>
+      <>
+        <button type="button" style={{ padding: '10px', border: '1px solid gray' }} onClick={handleOpenBottomSheet}>
+          바텀시트 열기
+        </button>
+        <BottomSheet isClosing={isClosing} close={handleCloseBottomSheet} ref={ref}>
+          <div style={{ padding: '20px' }}>바텀시트 컴포넌트</div>
+        </BottomSheet>
+      </>
+    );
+  },
+};
+
+export const WithMaxWidth: Story = {
+  render: () => {
+    const { ref, isClosing, handleOpenBottomSheet, handleCloseBottomSheet } = useBottomSheet();
+
+    return (
+      <>
+        <button type="button" style={{ padding: '10px', border: '1px solid gray' }} onClick={handleOpenBottomSheet}>
+          바텀시트 열기
+        </button>
+        <BottomSheet isClosing={isClosing} maxWidth="300px" close={handleCloseBottomSheet} ref={ref}>
+          <div style={{ padding: '20px' }}>바텀시트 컴포넌트</div>
+        </BottomSheet>
+      </>
     );
   },
 };

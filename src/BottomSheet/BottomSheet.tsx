@@ -1,4 +1,4 @@
-import { forwardRef, useCallback, useState } from 'react';
+import { forwardRef } from 'react';
 import type { ComponentPropsWithRef, ForwardedRef } from 'react';
 import { createPortal } from 'react-dom';
 import styled from 'styled-components';
@@ -7,28 +7,17 @@ import { slideDown, slideUp } from '../styles/animations';
 
 export interface BottomSheetProps extends ComponentPropsWithRef<'dialog'> {
   maxWidth?: string;
+  isClosing: boolean;
   close: () => void;
 }
 
 const BottomSheet = (
-  { maxWidth = '100%', close, children, ...props }: BottomSheetProps,
+  { maxWidth, isClosing, close, children, ...props }: BottomSheetProps,
   ref: ForwardedRef<HTMLDialogElement>
 ) => {
-  const [isClosing, setIsClosing] = useState(false);
-
-  const closeAnimated = useCallback(() => {
-    setIsClosing(true);
-
-    const timer = setTimeout(() => {
-      setIsClosing(false);
-      close();
-      clearTimeout(timer);
-    }, 200);
-  }, []);
-
   return createPortal(
     <ModalDialog ref={ref} {...props}>
-      <BackDrop onClick={closeAnimated} />
+      <BackDrop onClick={close} />
       <ModalWrapper maxWidth={maxWidth} isClosing={isClosing}>
         {children}
       </ModalWrapper>
@@ -63,10 +52,15 @@ const ModalWrapper = styled.div<ModalWrapperStyleProps>`
   position: fixed;
   bottom: 0;
   left: 0;
-  width: ${({ maxWidth }) => maxWidth};
+  width: 100%;
+  max-width: ${({ maxWidth }) => maxWidth};
   height: fit-content;
-  padding: 12px;
   border-radius: 12px 12px 0px 0px;
   background: ${({ theme }) => theme.colors.white};
-  animation: ${({ isClosing }) => (isClosing ? slideDown : slideUp)} 0.5s;
+  animation: ${({ isClosing }) => (isClosing ? slideDown : slideUp)} 0.3s;
+
+  @media screen and (min-width: ${({ maxWidth }) => maxWidth}) {
+    left: 50%;
+    transform: translateX(-50%);
+  }
 `;
