@@ -52,31 +52,33 @@ import FunEatProvider from '@fun-eat/design-system';
 ## BottomSheet
 
 아래에서 위로 올라오는 바텀시트 컴포넌트입니다.
+@fun-eat/design-system에서 제공하는 useBottomSheet와 사용해야 합니다.
 
 ### Props
 
 | props   | value    | description                                    |
 | ------- | -------- | ---------------------------------------------- |
+| maxWidth? | string | BottomSheet 컴포넌트의 최대 폭입니다. |
+| isClosing | boolean | BottomSheet 컴포넌트가 닫히는지 여부입니다. |
 | close() | function | BottomSheet 컴포넌트를 닫는 함수를 전달합니다. |
 
 ### Example
 
 ```tsx
-const ref = useRef<HTMLDialogElement>(null);
+import { useBottomSheet } from '@fun-eat/design-system'
 
-const openBottomSheet = () => {
-  ref.current?.open();
-};
+const Parent = () => {
+  const { ref, isClosing, handleOpenBottomSheet, handleCloseBottomSheet } = useBottomSheet();
 
-const closeBottomSheet = () => {
-  ref.current?.close();
-};
-
-return (
-  <BottomSheet close={closeBottomSheet} ref={ref}>
-    <div>바텀시트 컴포넌트</div>
-  </BottomSheet>
-);
+  return (
+    <>
+      <Button type="button" onClick={handleOpenBottomSheet}>바텀시트 열기</Button>
+      <BottomSheet ref={ref} isClosing={isClosing} close={handleCloseBottomSheet}>
+        <div>바텀시트 컴포넌트</div>
+      </BottomSheet>
+    </>
+  );
+}
 ```
 
 ## Button
@@ -89,17 +91,37 @@ return (
 | ---------- | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | width?     | string <br /> (default: 120px)                          | Button 컴포넌트의 넓이입니다.                                                                                                |
 | height?    | string <br /> (default: 40px)                           | Button 컴포넌트의 높이입니다.                                                                                                |
-| color?     | color <br /> (default: primary)                         | Button 컴포넌트의 색상입니다.                                                                                                |
-| textColor? | color <br /> (default: default)                         | Button 컴포넌트의 텍스트 색상입니다.                                                                                         |
-| size?      | xs, sm, md, lg, xl <br /> (default: md)                 | Button 컴포넌트의 폰트 크기입니다.                                                                                           |
-| weight?    | light, regular, bold <br /> (default: bold)             | Button 컴포넌트의 폰트 가중치입니다.                                                                                         |
-| variant?   | outlined, filled , transparent <br /> (default: filled) | Button 컴포넌트의 스타일로 배경색 없이 아웃라인이 있는지, 배경색이 있고 아웃라인이 없는지, 투명 배경인지 설정할 수 있습니다. |
+| color?     | color <br /> (default: `primary`)                         | Button 컴포넌트의 색상입니다.                                                                                                |
+| textColor? | color <br /> (default: `default`)                         | Button 컴포넌트의 텍스트 색상입니다.                                                                                         |
+| size?      | `xs`, `sm`, `md`, `lg`, `xl` <br /> (default: `md`)                 | Button 컴포넌트의 폰트 크기입니다.                                                                                           |
+| weight?    | `light`, `regular`, `bold` <br /> (default: `bold`)             | Button 컴포넌트의 폰트 가중치입니다.                                                                                         |
+| variant?   | `outlined`, `filled`, `transparent` <br /> (default: `filled`) | Button 컴포넌트의 스타일로 배경색 없이 아웃라인이 있는지, 배경색이 있고 아웃라인이 없는지, 투명 배경인지 설정할 수 있습니다. |
 
 ### Example
 
 ```jsx
 <Button width="100%" height="20px" color="#000" textColor="#fff" size="sm" weight="regular" variant="filled">버튼</Button>
 <Button>버튼</Button>
+```
+
+## Checkbox
+
+체크박스 컴포넌트입니다.
+
+### Props
+
+| props    | value                                                      | description                                                 |
+| -------- | ---------------------------------------------------------- | ----------------------------------------------------------- |
+| size? | `xs`, `sm`, `md`, `lg`, `xl` <br /> (default: `md`) | Checkbox 컴포넌트의 체크박스 크기입니다.                                      |
+| fontSize? | `xs`, `sm`, `md`, `lg`, `xl` <br /> (default: `md`) | Checkbox 컴포넌트의 폰트 크기입니다.                             |
+| weight? | `light`, `regular`, `bold` <br /> (default: `bold`) | Checkbox 컴포넌트의 폰트 가중치입니다.                             |
+
+### Example
+
+```jsx
+<Checkbox />
+<Checkbox size="xs">재구매 의사가 있으신가요?</Checkbox>
+<Checkbox size="xl" fontSize="xl" weight="bold">재구매 의사가 있으신가요?</Checkbox>
 ```
 
 ## Divider
@@ -214,4 +236,21 @@ import {Link as RouterLink, NavLink} from 'react-router-dom'
 <Text as="span">로망오우타해황</Text>
 <Text weight="bold" size="xl">로망오우타해황</Text>
 <Text css="color: red;">로망오우타해황</Text>
+```
+
+## Textarea
+
+멀티라인 텍스트 입력 컴포넌트입니다.
+
+### Props
+
+| props      | value                                                | description                    |
+| ---------- | ---------------------------------------------------- | ------------------------------ |
+| resize? | `both`, `horizontal`, `vertical`, `none` <br /> (default: `both`) | Textarea 컴포넌트의 크기 재조정 방향 설정입니다. |
+
+### Example
+
+```jsx
+<Textarea />
+<Textarea resize="vertical" rows={10} placeholder="값을 입력해주세요."/>
 ```
