@@ -57,7 +57,7 @@ const ModalWrapper = styled.div<ModalWrapperStyleProps>`
   height: fit-content;
   border-radius: 12px 12px 0px 0px;
   background: ${({ theme }) => theme.colors.white};
-  animation: ${({ isClosing }) => (isClosing ? slideDown : slideUp)} 0.5s;
+  animation: ${({ isClosing }) => (isClosing ? slideDown : slideUp)} 0.3s;
 
   @media screen and (min-width: ${({ maxWidth }) => maxWidth}) {
     left: 50%;

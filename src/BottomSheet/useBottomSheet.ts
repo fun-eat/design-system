@@ -11,7 +11,7 @@ export const useBottomSheet = () => {
       setIsClosing(false);
       ref.current?.close();
       clearTimeout(timer);
-    }, 200);
+    }, 100);
   }, []);
 
   const handleOpenBottomSheet = () => {
