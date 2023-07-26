@@ -11,10 +11,13 @@ const meta: Meta<typeof Button> = {
     },
   },
   args: {
-    color: 'black',
-    textColor: 'white',
-    variant: 'filled',
+    width: '120px',
+    height: '40px',
+    color: 'primary',
+    textColor: 'default',
     size: 'md',
+    weight: 'bold',
+    variant: 'filled',
     children: '버튼',
   },
 };
@@ -22,35 +25,7 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const XSmall: Story = {
-  args: {
-    size: 'xs',
-  },
-};
-
-export const Small: Story = {
-  args: {
-    size: 'sm',
-  },
-};
-
-export const Medium: Story = {
-  args: {
-    size: 'md',
-  },
-};
-
-export const Large: Story = {
-  args: {
-    size: 'lg',
-  },
-};
-
-export const XLarge: Story = {
-  args: {
-    size: 'xl',
-  },
-};
+export const Default: Story = {};
 
 export const Outlined: Story = {
   args: {
@@ -61,5 +36,11 @@ export const Outlined: Story = {
 export const Filled: Story = {
   args: {
     variant: 'filled',
+  },
+};
+
+export const Transparent: Story = {
+  args: {
+    variant: 'transparent',
   },
 };

@@ -2,41 +2,66 @@ import type { ComponentPropsWithoutRef } from 'react';
 import type { RuleSet } from 'styled-components';
 import styled, { css } from 'styled-components';
 
-import type { ColorKeys, TextColorKeys } from '../styles/theme';
+import type { ColorKeys, FontWeightKeys, TextColorKeys } from '../styles/theme';
 import type { Sizes } from '../types';
 
-type ButtonVariants = 'outlined' | 'filled';
+type ButtonVariants = 'outlined' | 'filled' | 'transparent';
 
 export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
   /**
+   * Button 컴포넌트의 넓이입니다.
+   */
+  width?: string;
+  /**
+   * Button 컴포넌트의 높이입니다.
+   */
+  height?: string;
+  /**
    * Button 컴포넌트의 색상입니다.
    */
-  color: ColorKeys;
+  color?: ColorKeys;
   /**
    * Button 컴포넌트의 텍스트 색상입니다.
    */
   textColor?: TextColorKeys;
   /**
-   * Button 컴포넌트의 스타일로 배경색 없이 아웃라인이 있는지, 배경색이 있고 아웃라인이 없는지 설정할 수 있습니다.
-   */
-  variant: ButtonVariants;
-  /**
-   * Button 컴포넌트의 크기입니다.
+   * Button 컴포넌트의 폰트 크기입니다.
    */
   size?: Sizes;
+  /**
+   * Button 컴포넌트의 폰트 가중치입니다.
+   */
+  weight?: FontWeightKeys;
+  /**
+   * Button 컴포넌트의 스타일로 배경색 없이 아웃라인이 있는지, 배경색이 있고 아웃라인이 없는지, 투명 배경인지 설정할 수 있습니다.
+   */
+  variant?: ButtonVariants;
 }
 
 const Button = ({
-  color,
+  width = '120px',
+  height = '40px',
+  color = 'primary',
   textColor = 'default',
-  variant = 'filled',
   size = 'md',
+  weight = 'bold',
+  variant = 'filled',
   children,
   css,
   ...props
 }: ButtonProps) => {
   return (
-    <ButtonContainer color={color} textColor={textColor} variant={variant} size={size} css={css} {...props}>
+    <ButtonContainer
+      width={width}
+      height={height}
+      color={color}
+      textColor={textColor}
+      size={size}
+      weight={weight}
+      variant={variant}
+      css={css}
+      {...props}
+    >
       {children}
     </ButtonContainer>
   );
@@ -44,53 +69,29 @@ const Button = ({
 
 export default Button;
 
-type ButtonStyleProps = Pick<ButtonProps, 'color' | 'textColor' | 'variant' | 'size'>;
-type ButtonVariantStyles = Record<
-  ButtonVariants,
-  (color: ButtonStyleProps['color'], textColors: ButtonStyleProps['textColor']) => RuleSet<object>
->;
+type ButtonStyleProps = Pick<ButtonProps, 'width' | 'height' | 'color' | 'textColor' | 'size' | 'weight' | 'variant'>;
+type ButtonVariantStyles = Record<ButtonVariants, (color: ButtonStyleProps['color']) => RuleSet<object>>;
 
 const buttonStyleTypeStyles: ButtonVariantStyles = {
-  outlined: (color, textColor) => css`
-    border: 1px solid ${({ theme }) => theme.colors[color]};
+  outlined: (color) => css`
+    border: 1px solid ${({ theme }) => theme.colors[color ?? 'black']};
     background: transparent;
-    color: ${({ theme }) => theme.textColors[textColor ?? 'default']};
   `,
-  filled: (color, textColor) => css`
-    background-color: ${({ theme }) => theme.colors[color]};
-    color: ${({ theme }) => theme.textColors[textColor ?? 'default']};
+  filled: (color) => css`
+    background-color: ${({ theme }) => theme.colors[color ?? 'black']};
   `,
-};
-
-const buttonTypeStyles = {
-  xs: css`
-    padding: 6px 12px;
-    border-radius: ${({ theme }) => theme.borderRadius.xs};
-    font-size: ${({ theme }) => theme.fontSizes.xs};
-  `,
-  sm: css`
-    padding: 8px 16px;
-    border-radius: ${({ theme }) => theme.borderRadius.xs};
-    font-size: ${({ theme }) => theme.fontSizes.sm};
-  `,
-  md: css`
-    padding: 10px 20px;
-    border-radius: ${({ theme }) => theme.borderRadius.xs};
-    font-size: ${({ theme }) => theme.fontSizes.md};
-  `,
-  lg: css`
-    padding: 12px 24px;
-    border-radius: ${({ theme }) => theme.borderRadius.sm};
-    font-size: ${({ theme }) => theme.fontSizes.lg};
-  `,
-  xl: css`
-    padding: 18px 130px;
-    border-radius: ${({ theme }) => theme.borderRadius.md};
-    font-size: ${({ theme }) => theme.fontSizes.xl};
+  transparent: () => css`
+    width: fit-content;
+    background-color: transparent;
   `,
 };
 
 const ButtonContainer = styled.button<ButtonStyleProps>`
-  ${({ variant, color, textColor }) => buttonStyleTypeStyles[variant](color, textColor)};
-  ${({ size }) => buttonTypeStyles[size ?? 'md']};
+  width: ${({ width }) => width};
+  height: ${({ height }) => height};
+  border-radius: ${({ theme }) => theme.borderRadius.xs};
+  color: ${({ theme, textColor }) => theme.textColors[textColor ?? 'default']};
+  font-size: ${({ theme, size }) => theme.fontSizes[size ?? 'md']};
+  font-weight: ${({ theme, weight }) => theme.fontWeights[weight ?? 'bold']};
+  ${({ variant, color }) => buttonStyleTypeStyles[variant ?? 'filled'](color)};
 `;
