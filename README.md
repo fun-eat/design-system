@@ -85,18 +85,21 @@ return (
 
 ### Props
 
-| props      | value                                              | description                                                                                                   |
-| ---------- | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| color      | CSSProperties['color']                             | Button 컴포넌트의 색상입니다.                                                                                 |
-| textColor? | CSSProperties['color']                             | Button 컴포넌트의 텍스트 색상입니다.                                                                          |
-| variant    | `outlined`, `filled` <br />(default: `filled`)     | Button 컴포넌트의 스타일로 배경색 없이 아웃라인이 있는지, 배경색이 있고 아웃라인이 없는지 설정할 수 있습니다. |
-| size?      | `xs`, `sm`, `md`, `lg`, `xl` <br />(default: `md`) | Button 컴포넌트의 크기입니다.                                                                                 |
+| props      | value                                                   | description                                                                                                                  |
+| ---------- | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| width?     | string <br /> (default: 120px)                          | Button 컴포넌트의 넓이입니다.                                                                                                |
+| height?    | string <br /> (default: 40px)                           | Button 컴포넌트의 높이입니다.                                                                                                |
+| color?     | color <br /> (default: primary)                         | Button 컴포넌트의 색상입니다.                                                                                                |
+| textColor? | color <br /> (default: default)                         | Button 컴포넌트의 텍스트 색상입니다.                                                                                         |
+| size?      | xs, sm, md, lg, xl <br /> (default: md)                 | Button 컴포넌트의 폰트 크기입니다.                                                                                           |
+| weight?    | light, regular, bold <br /> (default: bold)             | Button 컴포넌트의 폰트 가중치입니다.                                                                                         |
+| variant?   | outlined, filled , transparent <br /> (default: filled) | Button 컴포넌트의 스타일로 배경색 없이 아웃라인이 있는지, 배경색이 있고 아웃라인이 없는지, 투명 배경인지 설정할 수 있습니다. |
 
 ### Example
 
 ```jsx
-<Button color="#000" textColor="#fff" variant="filled" size="xs">버튼</Button>
-<Button color="#000" variant="outlined">버튼</Button>
+<Button width="100%" height="20px" color="#000" textColor="#fff" size="sm" weight="regular" variant="filled">버튼</Button>
+<Button>버튼</Button>
 ```
 
 ## Divider
