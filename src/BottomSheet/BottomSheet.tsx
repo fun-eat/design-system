@@ -55,9 +55,15 @@ const ModalWrapper = styled.div<ModalWrapperStyleProps>`
   width: 100%;
   max-width: ${({ maxWidth }) => maxWidth};
   height: fit-content;
+  max-height: 100%;
   border-radius: 12px 12px 0px 0px;
   background: ${({ theme }) => theme.colors.white};
+  overflow-y: auto;
   animation: ${({ isClosing }) => (isClosing ? slideDown : slideUp)} 0.3s;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   @media screen and (min-width: ${({ maxWidth }) => maxWidth}) {
     left: 50%;
