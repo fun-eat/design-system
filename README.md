@@ -56,29 +56,31 @@ import FunEatProvider from '@fun-eat/design-system';
 
 ### Props
 
-| props   | value    | description                                    |
-| ------- | -------- | ---------------------------------------------- |
-| maxWidth? | string | BottomSheet 컴포넌트의 최대 폭입니다. |
-| isClosing | boolean | BottomSheet 컴포넌트가 닫히는지 여부입니다. |
-| close() | function | BottomSheet 컴포넌트를 닫는 함수를 전달합니다. |
+| props     | value    | description                                    |
+| --------- | -------- | ---------------------------------------------- |
+| maxWidth? | string   | BottomSheet 컴포넌트의 최대 폭입니다.          |
+| isClosing | boolean  | BottomSheet 컴포넌트가 닫히는지 여부입니다.    |
+| close()   | function | BottomSheet 컴포넌트를 닫는 함수를 전달합니다. |
 
 ### Example
 
 ```tsx
-import { useBottomSheet } from '@fun-eat/design-system'
+import { useBottomSheet } from '@fun-eat/design-system';
 
 const Parent = () => {
   const { ref, isClosing, handleOpenBottomSheet, handleCloseBottomSheet } = useBottomSheet();
 
   return (
     <>
-      <Button type="button" onClick={handleOpenBottomSheet}>바텀시트 열기</Button>
+      <Button type="button" onClick={handleOpenBottomSheet}>
+        바텀시트 열기
+      </Button>
       <BottomSheet ref={ref} isClosing={isClosing} close={handleCloseBottomSheet}>
         <div>바텀시트 컴포넌트</div>
       </BottomSheet>
     </>
   );
-}
+};
 ```
 
 ## Button
@@ -87,15 +89,15 @@ const Parent = () => {
 
 ### Props
 
-| props      | value                                                   | description                                                                                                                  |
-| ---------- | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| width?     | string <br /> (default: 120px)                          | Button 컴포넌트의 넓이입니다.                                                                                                |
-| height?    | string <br /> (default: 40px)                           | Button 컴포넌트의 높이입니다.                                                                                                |
-| color?     | color <br /> (default: `primary`)                         | Button 컴포넌트의 색상입니다.                                                                                                |
-| textColor? | color <br /> (default: `default`)                         | Button 컴포넌트의 텍스트 색상입니다.                                                                                         |
-| size?      | `xs`, `sm`, `md`, `lg`, `xl` <br /> (default: `md`)                 | Button 컴포넌트의 폰트 크기입니다.                                                                                           |
-| weight?    | `light`, `regular`, `bold` <br /> (default: `bold`)             | Button 컴포넌트의 폰트 가중치입니다.                                                                                         |
-| variant?   | `outlined`, `filled`, `transparent` <br /> (default: `filled`) | Button 컴포넌트의 스타일로 배경색 없이 아웃라인이 있는지, 배경색이 있고 아웃라인이 없는지, 투명 배경인지 설정할 수 있습니다. |
+| props         | value                                                          | description                                                                                                                  |
+| ------------- | -------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| customWidth?  | string <br /> (default: 120px)                                 | Button 컴포넌트의 넓이입니다.                                                                                                |
+| customHeight? | string <br /> (default: 40px)                                  | Button 컴포넌트의 높이입니다.                                                                                                |
+| color?        | color <br /> (default: `primary`)                              | Button 컴포넌트의 색상입니다.                                                                                                |
+| textColor?    | color <br /> (default: `default`)                              | Button 컴포넌트의 텍스트 색상입니다.                                                                                         |
+| size?         | `xs`, `sm`, `md`, `lg`, `xl` <br /> (default: `md`)            | Button 컴포넌트의 폰트 크기입니다.                                                                                           |
+| weight?       | `light`, `regular`, `bold` <br /> (default: `bold`)            | Button 컴포넌트의 폰트 가중치입니다.                                                                                         |
+| variant?      | `outlined`, `filled`, `transparent` <br /> (default: `filled`) | Button 컴포넌트의 스타일로 배경색 없이 아웃라인이 있는지, 배경색이 있고 아웃라인이 없는지, 투명 배경인지 설정할 수 있습니다. |
 
 ### Example
 
@@ -110,11 +112,11 @@ const Parent = () => {
 
 ### Props
 
-| props    | value                                                      | description                                                 |
-| -------- | ---------------------------------------------------------- | ----------------------------------------------------------- |
-| size? | `xs`, `sm`, `md`, `lg`, `xl` <br /> (default: `md`) | Checkbox 컴포넌트의 체크박스 크기입니다.                                      |
-| fontSize? | `xs`, `sm`, `md`, `lg`, `xl` <br /> (default: `md`) | Checkbox 컴포넌트의 폰트 크기입니다.                             |
-| weight? | `light`, `regular`, `bold` <br /> (default: `bold`) | Checkbox 컴포넌트의 폰트 가중치입니다.                             |
+| props     | value                                               | description                              |
+| --------- | --------------------------------------------------- | ---------------------------------------- |
+| size?     | `xs`, `sm`, `md`, `lg`, `xl` <br /> (default: `md`) | Checkbox 컴포넌트의 체크박스 크기입니다. |
+| fontSize? | `xs`, `sm`, `md`, `lg`, `xl` <br /> (default: `md`) | Checkbox 컴포넌트의 폰트 크기입니다.     |
+| weight?   | `light`, `regular`, `bold` <br /> (default: `bold`) | Checkbox 컴포넌트의 폰트 가중치입니다.   |
 
 ### Example
 
@@ -244,8 +246,8 @@ import {Link as RouterLink, NavLink} from 'react-router-dom'
 
 ### Props
 
-| props      | value                                                | description                    |
-| ---------- | ---------------------------------------------------- | ------------------------------ |
+| props   | value                                                             | description                                      |
+| ------- | ----------------------------------------------------------------- | ------------------------------------------------ |
 | resize? | `both`, `horizontal`, `vertical`, `none` <br /> (default: `both`) | Textarea 컴포넌트의 크기 재조정 방향 설정입니다. |
 
 ### Example

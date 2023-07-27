@@ -11,11 +11,11 @@ export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
   /**
    * Button 컴포넌트의 넓이입니다.
    */
-  width?: string;
+  customWidth?: string;
   /**
    * Button 컴포넌트의 높이입니다.
    */
-  height?: string;
+  customHeight?: string;
   /**
    * Button 컴포넌트의 색상입니다.
    */
@@ -39,12 +39,12 @@ export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
 }
 
 const Button = ({
-  width = '120px',
-  height = '40px',
+  customWidth = '120px',
+  customHeight = '40px',
   color = 'primary',
   textColor = 'default',
   size = 'md',
-  weight = 'bold',
+  weight = 'regular',
   variant = 'filled',
   children,
   css,
@@ -52,8 +52,8 @@ const Button = ({
 }: ButtonProps) => {
   return (
     <ButtonContainer
-      width={width}
-      height={height}
+      customWidth={customWidth}
+      customHeight={customHeight}
       color={color}
       textColor={textColor}
       size={size}
@@ -69,7 +69,10 @@ const Button = ({
 
 export default Button;
 
-type ButtonStyleProps = Pick<ButtonProps, 'width' | 'height' | 'color' | 'textColor' | 'size' | 'weight' | 'variant'>;
+type ButtonStyleProps = Pick<
+  ButtonProps,
+  'customWidth' | 'customHeight' | 'color' | 'textColor' | 'size' | 'weight' | 'variant'
+>;
 type ButtonVariantStyles = Record<ButtonVariants, (color: ButtonStyleProps['color']) => RuleSet<object>>;
 
 const buttonStyleTypeStyles: ButtonVariantStyles = {
@@ -87,8 +90,8 @@ const buttonStyleTypeStyles: ButtonVariantStyles = {
 };
 
 const ButtonContainer = styled.button<ButtonStyleProps>`
-  width: ${({ width }) => width};
-  height: ${({ height }) => height};
+  width: ${({ customWidth }) => customWidth};
+  height: ${({ customHeight }) => customHeight};
   border-radius: ${({ theme }) => theme.borderRadius.xs};
   color: ${({ theme, textColor }) => theme.textColors[textColor ?? 'default']};
   font-size: ${({ theme, size }) => theme.fontSizes[size ?? 'md']};
