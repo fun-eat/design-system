@@ -39,7 +39,7 @@ export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
 }
 
 const Button = ({
-  customWidth = '120px',
+  customWidth = 'fit-content',
   customHeight = '40px',
   color = 'primary',
   textColor = 'default',
@@ -84,7 +84,6 @@ const buttonStyleTypeStyles: ButtonVariantStyles = {
     background-color: ${({ theme }) => theme.colors[color ?? 'black']};
   `,
   transparent: () => css`
-    width: fit-content;
     background-color: transparent;
   `,
 };
