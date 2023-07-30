@@ -132,15 +132,16 @@ const Parent = () => {
 
 ### Props
 
-| props    | value                                                      | description                                                 |
-| -------- | ---------------------------------------------------------- | ----------------------------------------------------------- |
-| variant? | `default`, `strong`, `disabled` <br />(default: `default`) | Divider 컴포넌트의 종류입니다. 강조의 정도 차이가 있습니다. |
-| width?   | string <br />(default: 100%)                               | Divider 컴포넌트의 길이입니다.                              |
+| props         | value                                                 | description                                                 |
+| ------------- | ----------------------------------------------------- | ----------------------------------------------------------- |
+| variant?      | default , strong , disabled <br /> (default: default) | Divider 컴포넌트의 종류입니다. 강조의 정도 차이가 있습니다. |
+| customWidth?  | string <br /> (default: 100%)                         | Divider 컴포넌트의 길이입니다.                              |
+| customHeight? | string <br /> (default: 1px)                          | Divider 컴포넌트의 두께입니다.                              |
 
 ### Example
 
 ```jsx
-<Divider variant="strong" width="50%" />
+<Divider variant="strong" customWidth="50%" customHeight='4px'/>
 <Divider />
 ```
 
