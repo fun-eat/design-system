@@ -1,4 +1,5 @@
-import type { ComponentPropsWithoutRef } from 'react';
+import type { ComponentPropsWithRef, ForwardedRef } from 'react';
+import { forwardRef } from 'react';
 import type { RuleSet } from 'styled-components';
 import styled, { css } from 'styled-components';
 
@@ -6,7 +7,7 @@ import type { FontWeightKeys } from '../styles/theme';
 import Text from '../Text';
 import type { Sizes } from '../types';
 
-type CheckboxBaseProps = Pick<ComponentPropsWithoutRef<'input'>, 'checked' | 'children' | 'onChange'>;
+type CheckboxBaseProps = Pick<ComponentPropsWithRef<'input'>, 'checked' | 'children' | 'onChange'>;
 
 export interface CheckboxProps extends CheckboxBaseProps {
   /**
@@ -21,11 +22,18 @@ export interface CheckboxProps extends CheckboxBaseProps {
    * Checkbox 컴포넌트의 라벨 폰트 가중치입니다.
    */
   weight?: FontWeightKeys;
+  /**
+   * Checkbox 컴포넌트의 tabIndex 값 입니다.
+   */
+  tabIndex?: -1 | 0 | 1;
 }
 
-const Checkbox = ({ children, size = 'md', fontSize = 'md', weight = 'regular', ...props }: CheckboxProps) => {
+const Checkbox = (
+  { children, size = 'md', fontSize = 'md', weight = 'regular', tabIndex, ...props }: CheckboxProps,
+  ref: ForwardedRef<HTMLLabelElement>
+) => {
   return (
-    <CheckboxContainer fontSize={fontSize} weight={weight}>
+    <CheckboxContainer ref={ref} fontSize={fontSize} weight={weight} tabIndex={tabIndex}>
       <CheckboxWrapper type="checkbox" size={size} {...props} />
       <CheckText as="span" size={size} aria-hidden="true" />
       <LabelText as="span">{children}</LabelText>
@@ -33,7 +41,7 @@ const Checkbox = ({ children, size = 'md', fontSize = 'md', weight = 'regular', 
   );
 };
 
-export default Checkbox;
+export default forwardRef(Checkbox);
 
 type CheckboxStyleProps = Pick<CheckboxProps, 'size' | 'fontSize' | 'weight'>;
 
