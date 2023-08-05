@@ -117,6 +117,7 @@ const Parent = () => {
 | size?     | `xs`, `sm`, `md`, `lg`, `xl` <br /> (default: `md`) | Checkbox 컴포넌트의 체크박스 크기입니다. |
 | fontSize? | `xs`, `sm`, `md`, `lg`, `xl` <br /> (default: `md`) | Checkbox 컴포넌트의 폰트 크기입니다.     |
 | weight?   | `light`, `regular`, `bold` <br /> (default: `bold`) | Checkbox 컴포넌트의 폰트 가중치입니다.   |
+| tabIndex? | `-1`, `0`, `1` <br />                               | Checkbox 컴포넌트의 tabIndex입니다.      |
 
 ### Example
 

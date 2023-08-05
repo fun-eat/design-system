@@ -34,6 +34,7 @@ type ModalWrapperStyleProps = Pick<BottomSheetProps, 'maxWidth'> & {
 
 const ModalDialog = styled.dialog`
   border: none;
+  z-index: 1000;
 `;
 
 const BackDrop = styled.div`
@@ -54,7 +55,6 @@ const ModalWrapper = styled.div<ModalWrapperStyleProps>`
   left: 0;
   width: 100%;
   max-width: ${({ maxWidth }) => maxWidth};
-  height: fit-content;
   max-height: 100%;
   border-radius: 12px 12px 0px 0px;
   background: ${({ theme }) => theme.colors.white};
