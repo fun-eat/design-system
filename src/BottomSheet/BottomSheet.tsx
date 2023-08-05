@@ -59,7 +59,7 @@ const ModalWrapper = styled.div<ModalWrapperStyleProps>`
   border-radius: 12px 12px 0px 0px;
   background: ${({ theme }) => theme.colors.white};
   overflow-y: auto;
-  animation: ${({ isClosing }) => (isClosing ? slideDown : slideUp)} 0.3s;
+  animation: ${({ isClosing }) => (isClosing ? slideDown : slideUp)} 0.5s;
 
   &::-webkit-scrollbar {
     display: none;

@@ -10,8 +10,9 @@ export const useBottomSheet = () => {
     const timer = setTimeout(() => {
       setIsClosing(false);
       ref.current?.close();
-      clearTimeout(timer);
-    }, 100);
+    }, 370);
+
+    return () => clearTimeout(timer);
   }, []);
 
   const handleOpenBottomSheet = () => {
