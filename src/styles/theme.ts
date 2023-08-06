@@ -13,6 +13,7 @@ export type BorderRadius = typeof borderRadius;
 const colors = {
   primary: '#D8EAFF',
   secondary: '#FFEC99',
+  tertiary: '#FFCFCF',
 
   white: '#ffffff',
   gray1: '#F7F7F7',
@@ -53,6 +54,12 @@ const backgroundColors = {
   light: colors.gray1,
 } as const;
 
+const tagColors = {
+  taste: colors.tertiary,
+  price: colors.secondary,
+  etc: colors.primary,
+} as const;
+
 const fontSizes = {
   xs: '1.2rem',
   sm: '1.4rem',
@@ -89,6 +96,7 @@ const theme = {
   borderColors,
   dividerColors,
   backgroundColors,
+  tagColors,
 
   fontSizes,
   fontWeights,
