@@ -26,15 +26,19 @@ export interface CheckboxProps extends CheckboxBaseProps {
    * Checkbox 컴포넌트의 tabIndex 값 입니다.
    */
   tabIndex?: -1 | 0 | 1;
+  /**
+   * Checkbox 컴포넌트 input를 가리키는 ref 입니다.
+   */
+  inputRef: React.RefObject<HTMLInputElement>;
 }
 
 const Checkbox = (
-  { children, size = 'md', fontSize = 'md', weight = 'regular', tabIndex, ...props }: CheckboxProps,
-  ref: ForwardedRef<HTMLLabelElement>
+  { children, size = 'md', fontSize = 'md', weight = 'regular', tabIndex, inputRef, ...props }: CheckboxProps,
+  labelRef: ForwardedRef<HTMLLabelElement>
 ) => {
   return (
-    <CheckboxContainer ref={ref} fontSize={fontSize} weight={weight} tabIndex={tabIndex}>
-      <CheckboxWrapper type="checkbox" size={size} {...props} />
+    <CheckboxContainer ref={labelRef} fontSize={fontSize} weight={weight} tabIndex={tabIndex}>
+      <CheckboxWrapper ref={inputRef} type="checkbox" size={size} {...props} />
       <CheckText as="span" size={size} aria-hidden="true" />
       <LabelText as="span">{children}</LabelText>
     </CheckboxContainer>

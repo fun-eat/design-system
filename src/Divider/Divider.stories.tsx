@@ -32,3 +32,9 @@ export const Disabled: Story = {
     variant: 'disabled',
   },
 };
+
+export const HightLight: Story = {
+  args: {
+    customHeight: '4px',
+  },
+};
