@@ -1,9 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
 
-import fonts from './fonts';
+import fonts from './font';
 
 const GlobalStyle = createGlobalStyle`
-  ${fonts}
+${fonts}
 
   * {
     margin: 0;
