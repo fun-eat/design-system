@@ -38,6 +38,7 @@ import FunEatProvider from '@fun-eat/design-system';
 
 | props     | value                                                 | description                                  |
 | --------- | ----------------------------------------------------- | -------------------------------------------- |
+| element   | p, span (default: span)                               | Badge 컴포넌트의 element 타입입니다.         |
 | color     | CSSProperties['color']                                | Badge 컴포넌트 내부 색상입니다.              |
 | textColor | CSSProperties['color']                                | Badge 컴포넌트에 들어갈 텍스트의 색상입니다. |
 | size?     | `xs` , `sm`, `md` , `lg` , `xl`<br /> (default: `sm`) | Badge 컴포넌트에 들어갈 텍스트의 크기입니다. |

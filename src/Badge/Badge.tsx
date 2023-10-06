@@ -8,7 +8,7 @@ type TextElement = Extract<ElementType, 'p' | 'span'>;
 
 export interface BadgeProps extends ComponentPropsWithoutRef<'div'> {
   /**
-   *
+   * Badge 컴포넌트의 element 타입입니다.
    */
   element?: TextElement;
   /**
