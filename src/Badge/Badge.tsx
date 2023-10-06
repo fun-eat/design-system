@@ -1,10 +1,16 @@
-import type { ComponentPropsWithoutRef, CSSProperties } from 'react';
+import type { ComponentPropsWithoutRef, CSSProperties, ElementType } from 'react';
 import styled, { css } from 'styled-components';
 import type { RuleSet } from 'styled-components';
 
 import type { Sizes } from '../types';
 
+type TextElement = Extract<ElementType, 'p' | 'span'>;
+
 export interface BadgeProps extends ComponentPropsWithoutRef<'div'> {
+  /**
+   * Badge 컴포넌트의 element 타입입니다.
+   */
+  element?: TextElement;
   /**
    * Badge 컴포넌트 내부 색상입니다.
    */
@@ -19,9 +25,9 @@ export interface BadgeProps extends ComponentPropsWithoutRef<'div'> {
   size?: Sizes;
 }
 
-const Badge = ({ color, textColor, size = 'sm', children, css, ...props }: BadgeProps) => {
+const Badge = ({ element, color, textColor, size = 'sm', children, css, ...props }: BadgeProps) => {
   return (
-    <BadgeContainer color={color} textColor={textColor} size={size} css={css} {...props}>
+    <BadgeContainer as={element} color={color} textColor={textColor} size={size} css={css} {...props}>
       {children}
     </BadgeContainer>
   );
@@ -50,6 +56,7 @@ const badgeSizeStyles: Record<Sizes, RuleSet<object>> = {
 };
 
 export const BadgeContainer = styled.span<BadgeStyleProps>`
+  width: fit-content;
   padding: 8px 12px;
   border-radius: 8px;
   background: ${({ color }) => color};
