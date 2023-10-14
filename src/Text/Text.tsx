@@ -1,4 +1,5 @@
 import type { CSSProperties, ElementType } from 'react';
+import type { CSSProp } from 'styled-components';
 import styled from 'styled-components';
 
 import type { FontWeightKeys } from '../styles/theme';
@@ -33,6 +34,10 @@ interface TextStyleProps {
    * Text 컴포넌트의 텍스트 정렬입니다.
    */
   align?: TextAligns;
+  /**
+   * Text 컴포넌트에 추가적으로 적용할 CSS 속성입니다.
+   */
+  css?: CSSProp;
 }
 
 export type TextProps<T extends TextElement> = OverridableComponentPropsWithoutRef<T, TextStyleProps>;
@@ -45,7 +50,6 @@ const Text = <T extends TextElement = 'p'>({
   lineHeight = 'md',
   color = theme.textColors.default,
   align = 'left',
-  css,
   ...props
 }: TextProps<T>) => {
   return (
@@ -56,7 +60,6 @@ const Text = <T extends TextElement = 'p'>({
       lineHeight={lineHeight}
       color={color}
       align={align}
-      css={css}
       {...props}
     >
       {children}
@@ -72,4 +75,5 @@ const TextContainer = styled.p<TextStyleProps>`
   line-height: ${({ theme, lineHeight }) => theme.lineHeights[lineHeight ?? 'md']};
   color: ${({ color }) => color ?? theme.textColors.default};
   text-align: ${({ align }) => align};
+  ${({ css }) => css}
 `;
