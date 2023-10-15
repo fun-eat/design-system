@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef, CSSProperties, ElementType } from 'react';
+import type { RuleSet, CSSProp } from 'styled-components';
 import styled, { css } from 'styled-components';
-import type { RuleSet } from 'styled-components';
 
 import type { Sizes } from '../types';
 
@@ -23,11 +23,15 @@ export interface BadgeProps extends ComponentPropsWithoutRef<'div'> {
    * Badge 컴포넌트에 들어갈 텍스트의 크기입니다.
    */
   size?: Sizes;
+  /**
+   * Badge 컴포넌트에 적용할 CSS 스타일입니다.
+   */
+  css?: CSSProp;
 }
 
-const Badge = ({ element, color, textColor, size = 'sm', children, css, ...props }: BadgeProps) => {
+const Badge = ({ element, color, textColor, size = 'sm', children, ...props }: BadgeProps) => {
   return (
-    <BadgeContainer as={element} color={color} textColor={textColor} size={size} css={css} {...props}>
+    <BadgeContainer as={element} color={color} textColor={textColor} size={size} {...props}>
       {children}
     </BadgeContainer>
   );
@@ -62,4 +66,5 @@ export const BadgeContainer = styled.span<BadgeStyleProps>`
   background: ${({ color }) => color};
   color: ${({ textColor }) => textColor};
   ${({ size }) => badgeSizeStyles[size ?? 'sm']}
+  ${({ css }) => css}
 `;

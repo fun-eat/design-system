@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react';
-import type { RuleSet } from 'styled-components';
+import type { CSSProp, RuleSet } from 'styled-components';
 import styled, { css } from 'styled-components';
 
 import type { ColorKeys, FontWeightKeys, TextColorKeys } from '../styles/theme';
@@ -36,6 +36,10 @@ export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
    * Button 컴포넌트의 스타일로 배경색 없이 아웃라인이 있는지, 배경색이 있고 아웃라인이 없는지, 투명 배경인지 설정할 수 있습니다.
    */
   variant?: ButtonVariants;
+  /**
+   * Button 컴포넌트에 적용할 CSS 스타일입니다.
+   */
+  css?: CSSProp;
 }
 
 const Button = ({
@@ -47,7 +51,6 @@ const Button = ({
   weight = 'regular',
   variant = 'filled',
   children,
-  css,
   ...props
 }: ButtonProps) => {
   return (
@@ -59,7 +62,6 @@ const Button = ({
       size={size}
       weight={weight}
       variant={variant}
-      css={css}
       {...props}
     >
       {children}
@@ -96,4 +98,5 @@ const ButtonContainer = styled.button<ButtonStyleProps>`
   font-size: ${({ theme, size }) => theme.fontSizes[size ?? 'md']};
   font-weight: ${({ theme, weight }) => theme.fontWeights[weight ?? 'bold']};
   ${({ variant, color }) => buttonStyleTypeStyles[variant ?? 'filled'](color)};
+  ${({ css }) => css}
 `;

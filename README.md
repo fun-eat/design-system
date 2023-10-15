@@ -42,6 +42,7 @@ import FunEatProvider from '@fun-eat/design-system';
 | color     | CSSProperties['color']                                | Badge 컴포넌트 내부 색상입니다.              |
 | textColor | CSSProperties['color']                                | Badge 컴포넌트에 들어갈 텍스트의 색상입니다. |
 | size?     | `xs` , `sm`, `md` , `lg` , `xl`<br /> (default: `sm`) | Badge 컴포넌트에 들어갈 텍스트의 크기입니다. |
+| css?      | CSSProp                                               | Badge 컴포넌트에 적용할 CSS 스타일입니다.    |
 
 ### Example
 
@@ -99,6 +100,7 @@ const Parent = () => {
 | size?         | `xs`, `sm`, `md`, `lg`, `xl` <br /> (default: `md`)            | Button 컴포넌트의 폰트 크기입니다.                                                                                           |
 | weight?       | `light`, `regular`, `bold` <br /> (default: `bold`)            | Button 컴포넌트의 폰트 가중치입니다.                                                                                         |
 | variant?      | `outlined`, `filled`, `transparent` <br /> (default: `filled`) | Button 컴포넌트의 스타일로 배경색 없이 아웃라인이 있는지, 배경색이 있고 아웃라인이 없는지, 투명 배경인지 설정할 수 있습니다. |
+| css?          | CSSProp                                                        | Button 컴포넌트에 적용할 CSS 스타일입니다.                                                                                   |
 
 ### Example
 
@@ -139,6 +141,7 @@ const Parent = () => {
 | variant?      | default , strong , disabled <br /> (default: default) | Divider 컴포넌트의 종류입니다. 강조의 정도 차이가 있습니다. |
 | customWidth?  | string <br /> (default: 100%)                         | Divider 컴포넌트의 길이입니다.                              |
 | customHeight? | string <br /> (default: 1px)                          | Divider 컴포넌트의 두께입니다.                              |
+| css?          | CSSProp                                               | Divider 컴포넌트에 적용할 CSS 스타일입니다.                 |
 
 ### Example
 
@@ -160,6 +163,7 @@ HTML heading 태그를 사용하는 컴포넌트입니다.
 | weight?   | `light`, `regular`, `bold`            | Heading 컴포넌트의 폰트 가중치입니다.       |
 | css?      | CSSProp                               | Heading 컴포넌트에 적용할 CSS 스타일입니다. |
 | as?       | `h1` ,`h2`, `h3`<br />(default: `h1`) | Heading 컴포넌트의 HTML 태그입니다.         |
+| css?      | CSSProp                               | Heading 컴포넌트에 적용할 CSS 스타일입니다. |
 
 ### Example
 
@@ -183,6 +187,7 @@ HTML heading 태그를 사용하는 컴포넌트입니다.
 | block       | boolean<br/>(default: false)                                                                    | Link 컴포넌트의 디스플레이 속성이 block인지 선택할 수 있습니다.       |
 | css?        | CSSProp                                                                                         | Link 컴포넌트에 적용할 CSS 스타일입니다.                              |
 | as?         | `a` ,`Link(react-router-dom의 Link)`, `NavLink(react-router-dom의 NavLink)`<br />(default: `a`) | Link 컴포넌트로 사용할 HTML 태그 또는 외부 링크 컴포넌트입니다.       |
+| css?        | CSSProp                                                                                         | Link 컴포넌트에 적용할 CSS 스타일입니다.                              |
 
 ### Example
 

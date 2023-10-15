@@ -35,7 +35,7 @@ interface TextStyleProps {
    */
   align?: TextAligns;
   /**
-   * Text 컴포넌트에 추가적으로 적용할 CSS 속성입니다.
+   * Text 컴포넌트에 적용할 CSS 스타일입니다.
    */
   css?: CSSProp;
 }
