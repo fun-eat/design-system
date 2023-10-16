@@ -22,7 +22,7 @@ const BottomSheet = (
         {children}
       </ModalWrapper>
     </ModalDialog>,
-    document.body
+    document.getElementById('dialog-container') as HTMLElement
   );
 };
 
