@@ -11,10 +11,6 @@ type TextAligns = 'left' | 'center' | 'right';
 
 interface TextStyleProps {
   /**
-   * Text 컴포넌트의 HTML 태그입니다.
-   */
-  element?: TextElement;
-  /**
    * Text 컴포넌트의 폰트 크기입니다.
    */
   size?: Sizes;
@@ -44,7 +40,6 @@ export type TextProps<T extends TextElement> = OverridableComponentPropsWithoutR
 
 const Text = <T extends TextElement = 'p'>({
   children,
-  element,
   size = 'md',
   weight = 'regular',
   lineHeight = 'md',
@@ -53,15 +48,7 @@ const Text = <T extends TextElement = 'p'>({
   ...props
 }: TextProps<T>) => {
   return (
-    <TextContainer
-      as={element}
-      size={size}
-      weight={weight}
-      lineHeight={lineHeight}
-      color={color}
-      align={align}
-      {...props}
-    >
+    <TextContainer size={size} weight={weight} lineHeight={lineHeight} color={color} align={align} {...props}>
       {children}
     </TextContainer>
   );

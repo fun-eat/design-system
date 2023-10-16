@@ -230,7 +230,6 @@ import {Link as RouterLink, NavLink} from 'react-router-dom'
 | props       | value                                              | description                              |
 | ----------- | -------------------------------------------------- | ---------------------------------------- |
 | children?   | ReactNode                                          | Text 컴포넌트의 자식 컴포넌트입니다.     |
-| element?    | `p`, `span`                                        | Text 컴포넌트의 HTML 태그입니다.         |
 | size?       | `xs`, `sm`, `md`, `lg`, `xl` <br />(default: `md`) | Text 컴포넌트의 폰트 크기입니다.         |
 | weight?     | `light`, `regular`, `bold`<br />(default: regular) | Text 컴포넌트의 폰트 가중치입니다.       |
 | lineHeight? | `xs`,`sm`, `md`, `xl` <br />(default: `md`)        | Text 컴포넌트의 텍스트 높이입니다.       |
