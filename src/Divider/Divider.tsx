@@ -1,4 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react';
+import type { CSSProp } from 'styled-components';
 import styled, { css } from 'styled-components';
 
 export interface DividerProps extends ComponentPropsWithoutRef<'hr'> {
@@ -14,12 +15,14 @@ export interface DividerProps extends ComponentPropsWithoutRef<'hr'> {
    * Divider 컴포넌트의 두께입니다.
    */
   customHeight?: string;
+  /**
+   * Divider 컴포넌트에 적용할 CSS 스타일입니다.
+   */
+  css?: CSSProp;
 }
 
-const Divider = ({ variant = 'default', customWidth = '100%', customHeight = '1px', css, ...props }: DividerProps) => {
-  return (
-    <DividerContainer variant={variant} customWidth={customWidth} customHeight={customHeight} css={css} {...props} />
-  );
+const Divider = ({ variant = 'default', customWidth = '100%', customHeight = '1px', ...props }: DividerProps) => {
+  return <DividerContainer variant={variant} customWidth={customWidth} customHeight={customHeight} {...props} />;
 };
 
 export default Divider;
@@ -44,4 +47,5 @@ const DividerContainer = styled.hr<DividerStyleProps>`
   width: ${({ customWidth }) => customWidth};
   height: ${({ customHeight }) => customHeight};
   border: 0;
+  ${({ css }) => css}
 `;
