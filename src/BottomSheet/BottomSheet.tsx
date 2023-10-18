@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import { slideDown, slideUp } from '../styles/animations';
 
-export interface BottomSheetProps extends ComponentPropsWithRef<'dialog'> {
+export interface BottomSheetProps extends ComponentPropsWithRef<'div'> {
   maxWidth?: string;
   isClosing: boolean;
   close: () => void;
@@ -13,10 +13,10 @@ export interface BottomSheetProps extends ComponentPropsWithRef<'dialog'> {
 
 const BottomSheet = (
   { maxWidth, isClosing, close, children, ...props }: BottomSheetProps,
-  ref: ForwardedRef<HTMLDialogElement>
+  ref: ForwardedRef<HTMLDivElement>
 ) => {
   return createPortal(
-    <ModalDialog ref={ref} {...props}>
+    <ModalDialog role="dialog" ref={ref} {...props}>
       <BackDrop onClick={close} />
       <ModalWrapper maxWidth={maxWidth} isClosing={isClosing}>
         {children}
@@ -32,9 +32,9 @@ type ModalWrapperStyleProps = Pick<BottomSheetProps, 'maxWidth'> & {
   isClosing: boolean;
 };
 
-const ModalDialog = styled.dialog`
+const ModalDialog = styled.div`
   border: none;
-  z-index: 1000;
+  z-index: 50;
 `;
 
 const BackDrop = styled.div`
