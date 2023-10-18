@@ -32,7 +32,7 @@ export const Default: Story = {
         <button type="button" style={{ padding: '10px', border: '1px solid gray' }} onClick={handleOpenBottomSheet}>
           바텀시트 열기
         </button>
-        <BottomSheet isOpen={isOpen} isClosing={isClosing} close={handleCloseBottomSheet} ref={ref}>
+        <BottomSheet isOpen={isOpen} isClosing={isClosing} close={handleCloseBottomSheet}>
           <div style={{ padding: '20px' }}>바텀시트 컴포넌트</div>
         </BottomSheet>
       </>
@@ -49,7 +49,7 @@ export const WithMaxWidth: Story = {
         <button type="button" style={{ padding: '10px', border: '1px solid gray' }} onClick={handleOpenBottomSheet}>
           바텀시트 열기
         </button>
-        <BottomSheet isOpen={isOpen} isClosing={isClosing} maxWidth="300px" close={handleCloseBottomSheet} ref={ref}>
+        <BottomSheet isOpen={isOpen} isClosing={isClosing} maxWidth="300px" close={handleCloseBottomSheet}>
           <div style={{ padding: '20px' }}>바텀시트 컴포넌트</div>
         </BottomSheet>
       </>
@@ -66,7 +66,7 @@ export const MaxHeight: Story = {
         <button type="button" style={{ padding: '10px', border: '1px solid gray' }} onClick={handleOpenBottomSheet}>
           바텀시트 열기
         </button>
-        <BottomSheet isOpen={isOpen} isClosing={isClosing} close={handleCloseBottomSheet} ref={ref}>
+        <BottomSheet isOpen={isOpen} isClosing={isClosing} close={handleCloseBottomSheet}>
           <div style={{ padding: '20px' }}>
             Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical
             Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at
