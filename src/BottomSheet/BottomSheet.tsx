@@ -12,6 +12,9 @@ export interface BottomSheetProps extends ComponentPropsWithRef<'div'> {
   close: () => void;
 }
 
+const containerElement =
+  window.location.port === '6006' ? document.body : (document.getElementById('dialog-container') as HTMLElement);
+
 const BottomSheet = (
   { maxWidth, isOpen, isClosing, close, children, ...props }: BottomSheetProps,
   ref: ForwardedRef<HTMLDivElement>
@@ -27,7 +30,7 @@ const BottomSheet = (
         </ModalDialog>
       )}
     </>,
-    document.getElementById('dialog-container') as HTMLElement
+    containerElement
   );
 };
 
