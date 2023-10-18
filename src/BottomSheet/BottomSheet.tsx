@@ -5,24 +5,32 @@ import styled from 'styled-components';
 
 import { slideDown, slideUp } from '../styles/animations';
 
-export interface BottomSheetProps extends ComponentPropsWithRef<'dialog'> {
+export interface BottomSheetProps extends ComponentPropsWithRef<'div'> {
   maxWidth?: string;
+  isOpen: boolean;
   isClosing: boolean;
   close: () => void;
 }
 
+const containerElement =
+  window.location.port === '6006' ? document.body : (document.getElementById('dialog-container') as HTMLElement);
+
 const BottomSheet = (
-  { maxWidth, isClosing, close, children, ...props }: BottomSheetProps,
-  ref: ForwardedRef<HTMLDialogElement>
+  { maxWidth, isOpen, isClosing, close, children, ...props }: BottomSheetProps,
+  ref: ForwardedRef<HTMLDivElement>
 ) => {
   return createPortal(
-    <ModalDialog ref={ref} {...props}>
-      <BackDrop onClick={close} />
-      <ModalWrapper maxWidth={maxWidth} isClosing={isClosing}>
-        {children}
-      </ModalWrapper>
-    </ModalDialog>,
-    document.getElementById('dialog-container') as HTMLElement
+    <>
+      {isOpen && (
+        <ModalDialog role="dialog" ref={ref} {...props}>
+          <BackDrop onClick={close} />
+          <ModalWrapper maxWidth={maxWidth} isClosing={isClosing}>
+            {children}
+          </ModalWrapper>
+        </ModalDialog>
+      )}
+    </>,
+    containerElement
   );
 };
 
@@ -32,9 +40,9 @@ type ModalWrapperStyleProps = Pick<BottomSheetProps, 'maxWidth'> & {
   isClosing: boolean;
 };
 
-const ModalDialog = styled.dialog`
+const ModalDialog = styled.div`
   border: none;
-  z-index: 1000;
+  z-index: 50;
 `;
 
 const BackDrop = styled.div`
