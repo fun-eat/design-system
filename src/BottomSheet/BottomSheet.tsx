@@ -7,21 +7,26 @@ import { slideDown, slideUp } from '../styles/animations';
 
 export interface BottomSheetProps extends ComponentPropsWithRef<'div'> {
   maxWidth?: string;
+  isOpen: boolean;
   isClosing: boolean;
   close: () => void;
 }
 
 const BottomSheet = (
-  { maxWidth, isClosing, close, children, ...props }: BottomSheetProps,
+  { maxWidth, isOpen, isClosing, close, children, ...props }: BottomSheetProps,
   ref: ForwardedRef<HTMLDivElement>
 ) => {
   return createPortal(
-    <ModalDialog role="dialog" ref={ref} {...props}>
-      <BackDrop onClick={close} />
-      <ModalWrapper maxWidth={maxWidth} isClosing={isClosing}>
-        {children}
-      </ModalWrapper>
-    </ModalDialog>,
+    <>
+      {isOpen && (
+        <ModalDialog role="dialog" ref={ref} {...props}>
+          <BackDrop onClick={close} />
+          <ModalWrapper maxWidth={maxWidth} isClosing={isClosing}>
+            {children}
+          </ModalWrapper>
+        </ModalDialog>
+      )}
+    </>,
     document.getElementById('dialog-container') as HTMLElement
   );
 };

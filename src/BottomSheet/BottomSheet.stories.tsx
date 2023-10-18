@@ -25,14 +25,14 @@ type Story = StoryObj<typeof BottomSheet>;
 
 export const Default: Story = {
   render: () => {
-    const { ref, isClosing, handleOpenBottomSheet, handleCloseBottomSheet } = useBottomSheet();
+    const { isOpen, isClosing, handleOpenBottomSheet, handleCloseBottomSheet } = useBottomSheet();
 
     return (
       <>
         <button type="button" style={{ padding: '10px', border: '1px solid gray' }} onClick={handleOpenBottomSheet}>
           바텀시트 열기
         </button>
-        <BottomSheet isClosing={isClosing} close={handleCloseBottomSheet} ref={ref}>
+        <BottomSheet isOpen={isOpen} isClosing={isClosing} close={handleCloseBottomSheet} ref={ref}>
           <div style={{ padding: '20px' }}>바텀시트 컴포넌트</div>
         </BottomSheet>
       </>
@@ -42,14 +42,14 @@ export const Default: Story = {
 
 export const WithMaxWidth: Story = {
   render: () => {
-    const { ref, isClosing, handleOpenBottomSheet, handleCloseBottomSheet } = useBottomSheet();
+    const { isOpen, isClosing, handleOpenBottomSheet, handleCloseBottomSheet } = useBottomSheet();
 
     return (
       <>
         <button type="button" style={{ padding: '10px', border: '1px solid gray' }} onClick={handleOpenBottomSheet}>
           바텀시트 열기
         </button>
-        <BottomSheet isClosing={isClosing} maxWidth="300px" close={handleCloseBottomSheet} ref={ref}>
+        <BottomSheet isOpen={isOpen} isClosing={isClosing} maxWidth="300px" close={handleCloseBottomSheet} ref={ref}>
           <div style={{ padding: '20px' }}>바텀시트 컴포넌트</div>
         </BottomSheet>
       </>
@@ -59,14 +59,14 @@ export const WithMaxWidth: Story = {
 
 export const MaxHeight: Story = {
   render: () => {
-    const { ref, isClosing, handleOpenBottomSheet, handleCloseBottomSheet } = useBottomSheet();
+    const { isOpen, isClosing, handleOpenBottomSheet, handleCloseBottomSheet } = useBottomSheet();
 
     return (
       <>
         <button type="button" style={{ padding: '10px', border: '1px solid gray' }} onClick={handleOpenBottomSheet}>
           바텀시트 열기
         </button>
-        <BottomSheet isClosing={isClosing} close={handleCloseBottomSheet} ref={ref}>
+        <BottomSheet isOpen={isOpen} isClosing={isClosing} close={handleCloseBottomSheet} ref={ref}>
           <div style={{ padding: '20px' }}>
             Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical
             Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at

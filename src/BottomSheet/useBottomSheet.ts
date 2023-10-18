@@ -1,6 +1,7 @@
 import { useCallback, useRef, useState } from 'react';
 
 export const useBottomSheet = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -9,18 +10,19 @@ export const useBottomSheet = () => {
 
     const timer = setTimeout(() => {
       setIsClosing(false);
+      setIsOpen(false);
     }, 370);
 
     return () => clearTimeout(timer);
   }, []);
 
   const handleOpenBottomSheet = () => {
-    setIsClosing(false);
+    setIsOpen(true);
   };
 
   const handleCloseBottomSheet = () => {
     closeAnimated();
   };
 
-  return { ref, isClosing, handleOpenBottomSheet, handleCloseBottomSheet };
+  return { ref, isOpen, isClosing, handleOpenBottomSheet, handleCloseBottomSheet };
 };
