@@ -1,4 +1,4 @@
-import type { ComponentPropsWithRef, ComponentPropsWithoutRef, ElementType } from 'react';
+import type { ComponentPropsWithRef, ComponentPropsWithoutRef, ElementType, ReactNode } from 'react';
 
 export type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
@@ -6,3 +6,8 @@ export type OverridableComponentPropsWithRef<T extends ElementType, P = unknown>
   ComponentPropsWithRef<T> & { as?: T };
 export type OverridableComponentPropsWithoutRef<T extends ElementType, P = unknown> = P &
   ComponentPropsWithoutRef<T> & { as?: T };
+
+export interface CarouselChildren {
+  id: number;
+  children: ReactNode;
+}
