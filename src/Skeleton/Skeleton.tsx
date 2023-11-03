@@ -2,7 +2,13 @@ import type { ComponentPropsWithoutRef } from 'react';
 import styled from 'styled-components';
 
 export interface SkeletonProps extends ComponentPropsWithoutRef<'div'> {
+  /**
+   * Skeleton 컴포넌트의 너비값입니다.
+   */
   width?: string | number;
+  /**
+   * Skeleton 컴포넌트의 높이값입니다.
+   */
   height?: string | number;
 }
 
