@@ -248,6 +248,25 @@ import {Link as RouterLink, NavLink} from 'react-router-dom'
 
 <br />
 
+## Skeleton
+
+로딩 상태를 시각적으로 나타내는 컴포넌트입니다.
+
+### Props
+
+| props   | value           | description                       |
+| ------- | --------------- | --------------------------------- |
+| width?  | string , number | Skeleton 컴포넌트의 너비값입니다. |
+| height? | string , number | Skeleton 컴포넌트의 높이값입니다. |
+
+### Example
+
+```jsx
+<Skeleton width={90} height={90} />
+```
+
+<br />
+
 ## Spacing
 
 화면 구역을 나누는 여백 컴포넌트입니다.
