@@ -1,10 +1,12 @@
+import type { ReactNode } from 'react';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import type { CarouselChildren } from '../types';
-
 export interface CarouselProps {
-  carouselList: CarouselChildren[];
+  carouselList: {
+    id: number;
+    children: ReactNode;
+  }[];
 }
 
 const Carousel = ({ carouselList }: CarouselProps) => {

@@ -2,11 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import Carousel from './Carousel';
 
-import { RecipeItem } from '@/components/Recipe';
-import mockRecipe from '@/mocks/data/recipes.json';
-
 const meta: Meta<typeof Carousel> = {
-  title: 'common/Carousel',
+  title: 'Carousel',
   component: Carousel,
 };
 
@@ -27,25 +24,6 @@ export const Default: Story = {
       {
         id: 2,
         children: <div>3</div>,
-      },
-    ],
-  },
-};
-
-export const RecipeRanking: Story = {
-  args: {
-    carouselList: [
-      {
-        id: 0,
-        children: <RecipeItem recipe={mockRecipe.recipes[0]} />,
-      },
-      {
-        id: 1,
-        children: <RecipeItem recipe={mockRecipe.recipes[1]} />,
-      },
-      {
-        id: 2,
-        children: <RecipeItem recipe={mockRecipe.recipes[2]} />,
       },
     ],
   },
