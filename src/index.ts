@@ -14,4 +14,5 @@ export { default as Link } from './Link';
 export { default as Spacing } from './Spacing';
 export { default as Text } from './Text';
 export { default as Textarea } from './Textarea';
+export { default as Input } from './Input';
 export { default as Skeleton } from './Skeleton';
