@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import useToast from '../hooks/useToast';
+import useToast from './useToast';
 import { fadeOut, slideIn } from '../styles/animations';
 import theme from '../styles/theme';
 import Text from '../Text';

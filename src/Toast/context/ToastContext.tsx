@@ -3,7 +3,7 @@ import { createContext, useState } from 'react';
 import { createPortal } from 'react-dom';
 import styled from 'styled-components';
 
-import Toast from '../Toast';
+import Toast from '..';
 
 interface ToastState {
   id: number;

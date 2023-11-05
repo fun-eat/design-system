@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
+import { useToastActionContext } from './context';
+import ToastProvider from './context/ToastContext';
 import Toast from './Toast';
-import ToastProvider from '../contexts/ToastContext';
-import { useToastActionContext } from '../hooks/context';
 
 const meta: Meta<typeof Toast> = {
   title: 'Toast',
