@@ -47,8 +47,8 @@ import FunEatProvider from '@fun-eat/design-system';
 ### Example
 
 ```tsx
-<Badge color="#000" textColor="#fff" size="md"/>
-<Badge color="#000" textColor="#fff" />
+<Badge color="#000" textColor="#fff" size="md">뱃지</Badge>
+<Badge color="#000" textColor="#fff">뱃지</Badge>
 ```
 
 <br />
@@ -254,10 +254,10 @@ import {Link as RouterLink, NavLink} from 'react-router-dom'
 
 ### Props
 
-| props      | value                                         | description                    |
-| ---------- | --------------------------------------------- | ------------------------------ |
-| direction? | vertical, horizontal<br /> (default: default) | Spacing 컴포넌트의 방향입니다. |
-| size       | number                                        | Spacing 컴포넌트의 크기입니다. |
+| props      | value                                          | description                    |
+| ---------- | ---------------------------------------------- | ------------------------------ |
+| direction? | vertical, horizontal<br /> (default: vertical) | Spacing 컴포넌트의 방향입니다. |
+| size       | number                                         | Spacing 컴포넌트의 크기입니다. |
 
 ### Example
 
