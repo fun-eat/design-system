@@ -116,6 +116,23 @@ const Parent = () => {
 
 <br />
 
+## Carousel
+
+캐러셀 컴포넌트입니다.
+
+### Example
+
+```jsx
+const carouselList = [0, 1, 2].map((index) => ({
+  id: index,
+  children: <div>{index}</div>,
+}));
+
+<Carousel carouselList={carouselList} />;
+```
+
+<br />
+
 ## **Checkbox**
 
 체크박스 컴포넌트입니다.

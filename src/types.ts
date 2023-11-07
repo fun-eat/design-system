@@ -1,4 +1,4 @@
-import type { ComponentPropsWithRef, ComponentPropsWithoutRef, ElementType } from 'react';
+import type { ComponentPropsWithRef, ComponentPropsWithoutRef, ElementType, ReactNode } from 'react';
 
 export type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
