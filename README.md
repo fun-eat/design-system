@@ -348,3 +348,14 @@ import {Link as RouterLink, NavLink} from 'react-router-dom'
 <Textarea />
 <Textarea resize="vertical" rows={10} placeholder="값을 입력해주세요."/>
 ```
+
+## Toast
+
+알람을 띄우는 토스트 컴포넌트입니다.
+
+### Example
+
+```jsx
+toast.success('성공');
+toast.error('실패');
+```
