@@ -16,7 +16,9 @@ const Toast = ({ id, message, isError = false }: ToastProps) => {
 
   return (
     <ToastWrapper isError={isError} isAnimating={isShown}>
-      <Message color={theme.colors.white}>{message}</Message>
+      <Message color={theme.colors.white} aria-live="assertive">
+        {message}
+      </Message>
     </ToastWrapper>
   );
 };
