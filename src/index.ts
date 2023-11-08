@@ -17,3 +17,5 @@ export { default as Skeleton } from './Skeleton';
 export { default as Spacing } from './Spacing';
 export { default as Text } from './Text';
 export { default as Textarea } from './Textarea';
+export { default as Toast } from './Toast';
+export * from './Toast';
