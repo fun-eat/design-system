@@ -5,13 +5,13 @@ import styled from 'styled-components';
 
 import Toast from '..';
 
-interface ToastState {
+export interface ToastState {
   id: number;
   message: string;
   isError?: boolean;
 }
 
-interface ToastValue {
+export interface ToastValue {
   toasts: ToastState[];
 }
 
