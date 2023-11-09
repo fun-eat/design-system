@@ -77,9 +77,9 @@ const Parent = () => {
 
   return (
     <>
-      <Button type="button" onClick={handleOpenBottomSheet}>
+      <button type="button" onClick={handleOpenBottomSheet}>
         바텀시트 열기
-      </Button>
+      </button>
       <BottomSheet ref={ref} isClosing={isClosing} close={handleCloseBottomSheet}>
         <div>바텀시트 컴포넌트</div>
       </BottomSheet>
@@ -133,7 +133,7 @@ const carouselList = [0, 1, 2].map((index) => ({
 
 <br />
 
-## **Checkbox**
+## Checkbox
 
 체크박스 컴포넌트입니다.
 
@@ -356,6 +356,8 @@ import {Link as RouterLink, NavLink} from 'react-router-dom'
 ### Example
 
 ```jsx
+const { toast } = useToastActionContext();
+
 toast.success('성공');
 toast.error('실패');
 ```
