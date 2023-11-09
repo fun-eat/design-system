@@ -2,6 +2,7 @@ export { default as FunEatProvider } from './FunEatProvider';
 
 export { default as theme } from './styles/theme';
 export { default as useTheme } from './hooks/useTheme';
+export { default as useSpaceValidator } from './hooks/useSpaceValidator';
 
 export { default as Badge } from './Badge';
 export { default as BottomSheet } from './BottomSheet';
