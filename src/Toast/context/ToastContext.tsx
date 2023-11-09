@@ -5,13 +5,13 @@ import styled from 'styled-components';
 
 import Toast from '..';
 
-interface ToastState {
+export interface ToastState {
   id: number;
   message: string;
   isError?: boolean;
 }
 
-interface ToastValue {
+export interface ToastValue {
   toasts: ToastState[];
 }
 
@@ -26,7 +26,7 @@ export interface ToastAction {
 export const ToastValueContext = createContext<ToastValue | null>(null);
 export const ToastActionContext = createContext<ToastAction | null>(null);
 
-const ToastProvider = ({ children }: PropsWithChildren) => {
+export const ToastProvider = ({ children }: PropsWithChildren) => {
   const [toasts, setToasts] = useState<ToastState[]>([]);
 
   const showToast = (id: number, message: string, isError?: boolean) => {
