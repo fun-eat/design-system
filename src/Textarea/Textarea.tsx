@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 import type { CSSProperties, ComponentPropsWithRef } from 'react';
 import styled from 'styled-components';
 
-import useValidator from '../hooks/useValidator';
+import useValidator from '../hooks/useSpaceValidator';
 import theme from '../styles/theme';
 import Text from '../Text/Text';
 
