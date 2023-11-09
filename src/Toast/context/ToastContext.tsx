@@ -26,7 +26,7 @@ export interface ToastAction {
 export const ToastValueContext = createContext<ToastValue | null>(null);
 export const ToastActionContext = createContext<ToastAction | null>(null);
 
-const ToastProvider = ({ children }: PropsWithChildren) => {
+export const ToastProvider = ({ children }: PropsWithChildren) => {
   const [toasts, setToasts] = useState<ToastState[]>([]);
 
   const showToast = (id: number, message: string, isError?: boolean) => {
