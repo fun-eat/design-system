@@ -2,7 +2,6 @@ import { forwardRef } from 'react';
 import type { CSSProperties, ComponentPropsWithRef } from 'react';
 import styled from 'styled-components';
 
-import useValidator from '../hooks/useSpaceValidator';
 import theme from '../styles/theme';
 import Text from '../Text/Text';
 
@@ -11,22 +10,22 @@ export interface TextareaProps extends ComponentPropsWithRef<'textarea'> {
    * Textarea 컴포넌트 사이즈 재조정 방향 설정입니다.
    */
   resize?: CSSProperties['resize'];
+  /**
+   * Textarea 컴포넌트의 에러 메시지입니다.
+   */
+  error: string;
 }
 
-const Textarea = ({ resize = 'both', ref, ...props }: TextareaProps) => {
-  const { value, error, handleChange } = useValidator();
-
+const Textarea = ({ resize = 'both', error, ref, ...props }: TextareaProps) => {
   return (
     <>
       <TextareaContainer
-        value={value}
         ref={ref}
         resize={resize}
         error={error}
         autoCapitalize="off"
         autoCorrect="off"
         spellCheck="false"
-        onChange={handleChange}
         {...props}
       />
       <Text size="xs" color={theme.colors.error} aria-live="assertive">
