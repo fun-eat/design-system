@@ -338,9 +338,10 @@ import {Link as RouterLink, NavLink} from 'react-router-dom'
 
 ### Props
 
-| props   | value                                                  | description                                      |
-| ------- | ------------------------------------------------------ | ------------------------------------------------ |
-| resize? | both, horizontal, vertical, none<br /> (default: both) | Textarea 컴포넌트의 크기 재조정 방향 설정입니다. |
+| props         | value                                                  | description                                      |
+| ------------- | ------------------------------------------------------ | ------------------------------------------------ |
+| resize?       | both, horizontal, vertical, none<br /> (default: both) | Textarea 컴포넌트의 크기 재조정 방향 설정입니다. |
+| errorMessage? | string                                                 | Textarea 컴포넌트의 에러 메시지입니다.           |
 
 ### Example
 

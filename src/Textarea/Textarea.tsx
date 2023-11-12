@@ -13,23 +13,23 @@ export interface TextareaProps extends ComponentPropsWithRef<'textarea'> {
   /**
    * Textarea 컴포넌트의 에러 메시지입니다.
    */
-  error: string;
+  errorMessage?: string;
 }
 
-const Textarea = ({ resize = 'both', error, ref, ...props }: TextareaProps) => {
+const Textarea = ({ resize = 'both', errorMessage, ref, ...props }: TextareaProps) => {
   return (
     <>
       <TextareaContainer
         ref={ref}
         resize={resize}
-        error={error}
+        errorMessage={errorMessage}
         autoCapitalize="off"
         autoCorrect="off"
         spellCheck="false"
         {...props}
       />
       <Text size="xs" color={theme.colors.error} aria-live="assertive">
-        {error}
+        {errorMessage}
       </Text>
     </>
   );
@@ -38,7 +38,7 @@ const Textarea = ({ resize = 'both', error, ref, ...props }: TextareaProps) => {
 export default forwardRef(Textarea);
 
 type TextareaStyleProps = Pick<TextareaProps, 'resize'> & {
-  error: string;
+  errorMessage?: string;
 };
 
 const TextareaContainer = styled.textarea<TextareaStyleProps>`
@@ -49,7 +49,7 @@ const TextareaContainer = styled.textarea<TextareaStyleProps>`
   border-radius: 0;
   line-height: 1.5;
   resize: ${({ resize }) => resize};
-  outline-color: ${({ error, theme }) => (error ? theme.colors.error : theme.colors.primary)};
+  outline-color: ${({ errorMessage, theme }) => (errorMessage ? theme.colors.error : theme.colors.primary)};
 
   &::placeholder {
     color: ${({ theme }) => theme.textColors.disabled};
