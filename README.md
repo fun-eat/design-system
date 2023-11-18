@@ -77,9 +77,9 @@ const Parent = () => {
 
   return (
     <>
-      <Button type="button" onClick={handleOpenBottomSheet}>
+      <button type="button" onClick={handleOpenBottomSheet}>
         바텀시트 열기
-      </Button>
+      </button>
       <BottomSheet ref={ref} isClosing={isClosing} close={handleCloseBottomSheet}>
         <div>바텀시트 컴포넌트</div>
       </BottomSheet>
@@ -133,7 +133,7 @@ const carouselList = [0, 1, 2].map((index) => ({
 
 <br />
 
-## **Checkbox**
+## Checkbox
 
 체크박스 컴포넌트입니다.
 
@@ -338,13 +338,27 @@ import {Link as RouterLink, NavLink} from 'react-router-dom'
 
 ### Props
 
-| props   | value                                                  | description                                      |
-| ------- | ------------------------------------------------------ | ------------------------------------------------ |
-| resize? | both, horizontal, vertical, none<br /> (default: both) | Textarea 컴포넌트의 크기 재조정 방향 설정입니다. |
+| props         | value                                                  | description                                      |
+| ------------- | ------------------------------------------------------ | ------------------------------------------------ |
+| resize?       | both, horizontal, vertical, none<br /> (default: both) | Textarea 컴포넌트의 크기 재조정 방향 설정입니다. |
+| errorMessage? | string                                                 | Textarea 컴포넌트의 에러 메시지입니다.           |
 
 ### Example
 
 ```jsx
 <Textarea />
 <Textarea resize="vertical" rows={10} placeholder="값을 입력해주세요."/>
+```
+
+## Toast
+
+알람을 띄우는 토스트 컴포넌트입니다.
+
+### Example
+
+```jsx
+const { toast } = useToastActionContext();
+
+toast.success('성공');
+toast.error('실패');
 ```

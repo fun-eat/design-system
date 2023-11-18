@@ -1,4 +1,5 @@
-import { useCallback, useRef, useState } from 'react';
+import type { KeyboardEventHandler } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 export const useBottomSheet = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,6 +24,19 @@ export const useBottomSheet = () => {
   const handleCloseBottomSheet = () => {
     closeAnimated();
   };
+
+  const handleKeydown = (e: KeyboardEvent) => {
+    if (e.keyCode === 27) {
+      e.preventDefault();
+      handleCloseBottomSheet();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeydown);
+
+    return () => document.removeEventListener('keydown', handleKeydown);
+  }, [handleKeydown]);
 
   return { ref, isOpen, isClosing, handleOpenBottomSheet, handleCloseBottomSheet };
 };
