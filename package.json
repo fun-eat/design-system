@@ -2,9 +2,22 @@
   "name": "@fun-eat/design-system",
   "description": "펀잇 디자인시스템 라이브러리",
   "version": "0.4.2",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/cjs/types/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/types/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/types/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    }
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -27,18 +40,24 @@
   "scripts": {
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "build": "GENERATE_SOURCEMAP=false webpack --progress --mode production",
-    "publish:npm": "rm -rf dist && mkdir dist && tsc"
+    "clean": "rm -rf dist",
+    "type:cjs": "tsc --project tsconfig.cjs.json",
+    "type:esm": "tsc --project tsconfig.esm.json",
+    "build": "yarn clean && yarn type:cjs && yarn type:esm && rollup -c"
   },
   "peerDependencies": {
     "react": ">=18.x",
-    "react-dom": ">=18.x",
-    "styled-components": ">=6.x"
+    "react-dom": ">=18.x"
   },
   "devDependencies": {
+    "@babel/core": "^7.24.0",
+    "@babel/plugin-transform-runtime": "^7.24.0",
     "@babel/preset-env": "^7.22.7",
     "@babel/preset-react": "^7.22.5",
     "@babel/preset-typescript": "^7.22.5",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
     "@storybook/addon-essentials": "^7.0.26",
     "@storybook/addon-interactions": "^7.0.26",
     "@storybook/addon-links": "^7.0.26",
@@ -59,15 +78,18 @@
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-storybook": "^0.6.12",
+    "postcss": "^8.4.35",
+    "postcss-import": "^16.0.1",
     "prettier": "^2.8.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.1",
+    "rollup": "^4.12.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-terser": "^7.0.2",
     "storybook": "^7.0.26",
     "styled-components": "^6.0.3",
-    "ts-loader": "^9.4.4",
-    "typescript": "^5.1.6",
-    "webpack": "^5.88.1",
-    "webpack-cli": "^5.1.4"
+    "typescript": "^5.1.6"
   }
 }
