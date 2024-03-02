@@ -1,3 +1,5 @@
+import './styles/index.css';
+
 export { default as FunEatProvider } from './FunEatProvider';
 
 export { default as theme } from './styles/theme';
