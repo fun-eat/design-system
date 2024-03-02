@@ -19,6 +19,6 @@ button,
 input,
 select,
 textarea {
-  font-size: 1.6rem;
+  font-size: var(--font-size-lg);
   color: var(--text-default);
 }

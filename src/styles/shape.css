@@ -1,10 +1,4 @@
 :root {
-  --border-radius-sm: 0.2rem;
-  --border-radius-md: 0.6rem;
-
-  --spacing-xs: 0.8rem;
-  --spacing-sm: 1.2rem;
-  --spacing-md: 2rem;
-  --spacing-lg: 2.8rem;
-  --spacing-xl: 3.2rem;
+  --border-radius-sm: 2px;
+  --border-radius-md: 6px;
 }
