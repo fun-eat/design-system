@@ -26,11 +26,15 @@ export const Default: Story = {};
 export const Sizes: Story = {
   render: ({ children }) => (
     <>
-      <Text size="xs">{children}</Text>
+      <Text size="xs" css={{ lineHeight: '100px' }}>
+        {children}
+      </Text>
       <Text size="sm">{children}</Text>
       <Text size="md">{children}</Text>
       <Text size="lg">{children}</Text>
-      <Text size="xl">{children}</Text>
+      <Text size="xl" as="span">
+        {children}
+      </Text>
     </>
   ),
 };
@@ -48,15 +52,9 @@ export const Weights: Story = {
 export const Aligns: Story = {
   render: ({ children }) => (
     <>
-      <Text align="left" lineHeight="xl">
-        {children}
-      </Text>
-      <Text align="center" lineHeight="xl">
-        {children}
-      </Text>
-      <Text align="right" lineHeight="xl">
-        {children}
-      </Text>
+      <Text align="left">{children}</Text>
+      <Text align="center">{children}</Text>
+      <Text align="right">{children}</Text>
     </>
   ),
 };
