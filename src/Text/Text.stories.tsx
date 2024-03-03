@@ -26,15 +26,11 @@ export const Default: Story = {};
 export const Sizes: Story = {
   render: ({ children }) => (
     <>
-      <Text size="xs" css={{ lineHeight: '100px' }}>
-        {children}
-      </Text>
+      <Text size="xs">{children}</Text>
       <Text size="sm">{children}</Text>
       <Text size="md">{children}</Text>
       <Text size="lg">{children}</Text>
-      <Text size="xl" as="span">
-        {children}
-      </Text>
+      <Text size="xl">{children}</Text>
     </>
   ),
 };
