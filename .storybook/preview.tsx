@@ -2,6 +2,8 @@ import type { Preview } from '@storybook/react';
 import React from 'react';
 import FunEatProvider from '../src/FunEatProvider';
 
+import '../src/styles/index.css';
+
 const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },

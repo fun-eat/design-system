@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "esnext",
+    "declarationDir": "./dist/esm/types"
+  },
+  "exclude": ["node_modules", "dist", "**/*.stories.tsx"]
+}

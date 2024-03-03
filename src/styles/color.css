@@ -1,0 +1,25 @@
+:root {
+  --primary: #ffb017;
+  --secondary1: #ffc14a;
+  --secondary2: #ffd27c;
+
+  --white: #ffffff;
+  --gray1: #f7f7f7;
+  --gray2: #dddddd;
+  --gray3: #a0a0a0;
+  --gray4: #6b6b6b;
+  --gray5: #444444;
+  --black: #232527;
+
+  --success: #1774ff;
+  --caution: #ff9417;
+  --error: #fd4545;
+
+  --text-default: var(--black);
+  --text-white: var(--white);
+
+  --border-default: #e6e6e6;
+  --border-light: #f9f9f9;
+
+  --bg-default: var(--white);
+}

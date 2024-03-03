@@ -1,0 +1,24 @@
+:root {
+  --font-size-xs: 1.1rem;
+  --font-size-sm: 1.2rem;
+  --font-size-md: 1.4rem;
+  --font-size-lg: 1.6rem;
+  --font-size-xl: 1.8rem;
+
+  --font-weight-rg: 400;
+  --font-weight-md: 500;
+  --font-weight-sb: 600;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-size: var(--font-size-lg);
+  color: var(--text-default);
+}

@@ -1,0 +1,37 @@
+@import './color.css';
+@import './font.css';
+@import './shape.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-default);
+}
+
+a {
+  color: var(--text-default);
+  text-decoration: none;
+  outline: none;
+}
+
+ol,
+ul,
+li {
+  list-style: none;
+}
+
+input {
+  background-color: transparent;
+  border: 0;
+}
+
+button {
+  color: initial;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
