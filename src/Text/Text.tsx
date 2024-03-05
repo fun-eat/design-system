@@ -1,13 +1,13 @@
-import type { CSSProperties, ElementType } from 'react';
-import type { CSSProp } from 'styled-components';
-import styled from 'styled-components';
+import { type CSSProperties, type ElementType } from 'react';
 
 import type { FontWeightKeys } from '../styles/theme';
-import theme from '../styles/theme';
 import type { Sizes, OverridableComponentPropsWithoutRef } from '../types';
+
+import styles from './text.module.css';
 
 type TextElement = Extract<ElementType, 'p' | 'span'>;
 type TextAligns = 'left' | 'center' | 'right';
+type TextCSS = Omit<CSSProperties, 'fontSize' | 'fontWeight' | 'textAlign' | 'color'>;
 
 interface TextStyleProps {
   /**
@@ -19,10 +19,6 @@ interface TextStyleProps {
    */
   weight?: FontWeightKeys;
   /**
-   * Text 컴포넌트의 텍스트 높이입니다.
-   */
-  lineHeight?: Sizes;
-  /**
    * Text 컴포넌트의 텍스트 색상입니다.
    */
   color?: CSSProperties['color'];
@@ -33,34 +29,34 @@ interface TextStyleProps {
   /**
    * Text 컴포넌트에 적용할 CSS 스타일입니다.
    */
-  css?: CSSProp;
+  css?: TextCSS;
 }
 
-export type TextProps<T extends TextElement> = OverridableComponentPropsWithoutRef<T, TextStyleProps>;
+export type TextProps = OverridableComponentPropsWithoutRef<TextElement, TextStyleProps>;
 
-const Text = <T extends TextElement = 'p'>({
+const Text = ({
+  as: Component = 'p',
   children,
-  size = 'md',
+  size = 'lg',
   weight = 'regular',
-  lineHeight = 'md',
-  color = theme.textColors.default,
+  color,
   align = 'left',
+  css = {},
   ...props
-}: TextProps<T>) => {
+}: TextProps) => {
+  const style = {
+    '--font-size': `var(--font-size-${size})`,
+    '--font-weight': `var(--font-weight-${weight})`,
+    '--color': color,
+    '--align': align,
+    ...(css as TextCSS),
+  };
+
   return (
-    <TextContainer size={size} weight={weight} lineHeight={lineHeight} color={color} align={align} {...props}>
+    <Component className={styles.text} style={style} {...props}>
       {children}
-    </TextContainer>
+    </Component>
   );
 };
 
 export default Text;
-
-const TextContainer = styled.p<TextStyleProps>`
-  font-size: ${({ theme, size }) => theme.fontSizes[size ?? 'md']};
-  font-weight: ${({ theme, weight }) => theme.fontWeights[weight ?? 'regular']};
-  line-height: ${({ theme, lineHeight }) => theme.lineHeights[lineHeight ?? 'md']};
-  color: ${({ color }) => color ?? theme.textColors.default};
-  text-align: ${({ align }) => align};
-  ${({ css }) => css}
-`;

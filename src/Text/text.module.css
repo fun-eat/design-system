@@ -1,0 +1,6 @@
+.text {
+  font-size: var(--font-size, var(--font-size-lg));
+  font-weight: var(--font-weight, var(--font-weight-regular));
+  color: var(--color, var(--text-default));
+  text-align: var(--align, left);
+}

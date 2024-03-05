@@ -48,15 +48,18 @@ export const Weights: Story = {
 export const Aligns: Story = {
   render: ({ children }) => (
     <>
-      <Text align="left" lineHeight="xl">
-        {children}
-      </Text>
-      <Text align="center" lineHeight="xl">
-        {children}
-      </Text>
-      <Text align="right" lineHeight="xl">
-        {children}
-      </Text>
+      <Text align="left">{children}</Text>
+      <Text align="center">{children}</Text>
+      <Text align="right">{children}</Text>
+    </>
+  ),
+};
+
+export const Elements: Story = {
+  render: ({ children }) => (
+    <>
+      <Text>{children}</Text>
+      <Text as="span">{children}</Text>
     </>
   ),
 };
