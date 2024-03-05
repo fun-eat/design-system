@@ -54,3 +54,12 @@ export const Aligns: Story = {
     </>
   ),
 };
+
+export const Elements: Story = {
+  render: ({ children }) => (
+    <>
+      <Text>{children}</Text>
+      <Text as="span">{children}</Text>
+    </>
+  ),
+};
