@@ -41,8 +41,9 @@ type ModalWrapperStyleProps = Pick<BottomSheetProps, 'maxWidth'> & {
 };
 
 const ModalDialog = styled.div`
+  position: relative;
   border: none;
-  z-index: 50;
+  z-index: 9999;
 `;
 
 const BackDrop = styled.div`
