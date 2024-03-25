@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { useBottomSheet } from './useBottomSheet';
-// 오류로 인해 임시 설정
-import React from 'react';
+
 import BottomSheet from './BottomSheet';
 import { useToastActionContext } from '../Toast/context/useToastActionContext';
 
