@@ -60,7 +60,7 @@ const ModalWrapper = styled.div<ModalWrapperStyleProps>`
   left: 0;
   width: 100%;
   max-width: ${({ maxWidth }) => maxWidth};
-  max-height: 100%;
+  max-height: 436px;
   border-radius: 12px 12px 0px 0px;
   background: ${({ theme }) => theme.colors.white};
   overflow-y: auto;
