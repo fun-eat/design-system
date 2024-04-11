@@ -6,3 +6,5 @@ export type OverridableComponentPropsWithRef<T extends ElementType, P = unknown>
   ComponentPropsWithRef<T> & { as?: T };
 export type OverridableComponentPropsWithoutRef<T extends ElementType, P = unknown> = P &
   ComponentPropsWithoutRef<T> & { as?: T };
+
+export type ToastId = 'toast-container' | 'toast-in-dialog-container';

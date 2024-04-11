@@ -5,10 +5,11 @@ import styled from 'styled-components';
 
 import { slideDown, slideUp } from '../styles/animations';
 
-export interface BottomSheetProps extends ComponentPropsWithRef<'div'> {
-  maxWidth?: string;
-  isOpen: boolean;
+export interface BottomSheetProps extends ComponentPropsWithRef<'dialog'> {
   isClosing: boolean;
+  maxWidth?: string;
+  maxHeight?: string;
+  hasToast?: boolean;
   close: () => void;
 }
 
@@ -16,34 +17,30 @@ const containerElement =
   window.location.port === '6006' ? document.body : (document.getElementById('dialog-container') as HTMLElement);
 
 const BottomSheet = (
-  { maxWidth, isOpen, isClosing, close, children, ...props }: BottomSheetProps,
-  ref: ForwardedRef<HTMLDivElement>
+  { maxWidth, maxHeight, isClosing, close, hasToast, children, ...props }: BottomSheetProps,
+  ref: ForwardedRef<HTMLDialogElement>
 ) => {
   return createPortal(
-    <>
-      {isOpen && (
-        <ModalDialog role="dialog" ref={ref} {...props}>
-          <BackDrop onClick={close} />
-          <ModalWrapper maxWidth={maxWidth} isClosing={isClosing}>
-            {children}
-          </ModalWrapper>
-        </ModalDialog>
-      )}
-    </>,
+    <ModalDialog ref={ref} {...props}>
+      <BackDrop onClick={close} />
+      <ModalWrapper maxWidth={maxWidth} isClosing={isClosing}>
+        {children}
+      </ModalWrapper>
+      {hasToast && <div id="toast-in-dialog-container" aria-hidden />}
+    </ModalDialog>,
     containerElement
   );
 };
 
 export default forwardRef(BottomSheet);
 
-type ModalWrapperStyleProps = Pick<BottomSheetProps, 'maxWidth'> & {
+type ModalWrapperStyleProps = Pick<BottomSheetProps, 'maxWidth' | 'maxHeight'> & {
   isClosing: boolean;
 };
 
-const ModalDialog = styled.div`
-  position: relative;
+const ModalDialog = styled.dialog`
   border: none;
-  z-index: 9999;
+  z-index: 1000;
 `;
 
 const BackDrop = styled.div`
@@ -64,7 +61,7 @@ const ModalWrapper = styled.div<ModalWrapperStyleProps>`
   left: 0;
   width: 100%;
   max-width: ${({ maxWidth }) => maxWidth};
-  max-height: 100%;
+  max-height: ${({ maxHeight }) => maxHeight}
   border-radius: 12px 12px 0px 0px;
   background: ${({ theme }) => theme.colors.white};
   overflow-y: auto;

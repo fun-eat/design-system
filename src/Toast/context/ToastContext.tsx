@@ -4,6 +4,7 @@ import { createPortal } from 'react-dom';
 import styled from 'styled-components';
 
 import Toast from '..';
+import { ToastId } from '../../types';
 
 export interface ToastState {
   id: number;
@@ -21,6 +22,7 @@ export interface ToastAction {
     error: (message: string) => void;
   };
   deleteToast: (id: number) => void;
+  setToastId: (id: ToastId) => void;
 }
 
 export const ToastValueContext = createContext<ToastValue | null>(null);
@@ -28,6 +30,7 @@ export const ToastActionContext = createContext<ToastAction | null>(null);
 
 export const ToastProvider = ({ children }: PropsWithChildren) => {
   const [toasts, setToasts] = useState<ToastState[]>([]);
+  const [toastElementId, setToastElementId] = useState<ToastId>('toast-container');
 
   const showToast = (id: number, message: string, isError?: boolean) => {
     setToasts([...toasts, { id, message, isError }]);
@@ -35,6 +38,10 @@ export const ToastProvider = ({ children }: PropsWithChildren) => {
 
   const deleteToast = (id: number) => {
     setToasts((prevToasts) => prevToasts.filter((toast) => toast.id !== id));
+  };
+
+  const setToastId = (id: ToastId) => {
+    setToastElementId(id);
   };
 
   const toast = {
@@ -49,6 +56,7 @@ export const ToastProvider = ({ children }: PropsWithChildren) => {
   const toastAction = {
     toast,
     deleteToast,
+    setToastId,
   };
 
   return (
@@ -61,7 +69,7 @@ export const ToastProvider = ({ children }: PropsWithChildren) => {
               <Toast key={id} id={id} message={message} isError={isError} />
             ))}
           </ToastContainer>,
-          document.getElementById('toast-container') as HTMLElement
+          document.getElementById(toastElementId) as HTMLElement
         )}
       </ToastValueContext.Provider>
     </ToastActionContext.Provider>

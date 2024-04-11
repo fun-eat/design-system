@@ -1,7 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import BottomSheet from './BottomSheet';
 import { useBottomSheet } from './useBottomSheet';
+
+import BottomSheet from './BottomSheet';
+import { useToastActionContext } from '../Toast/context/useToastActionContext';
 
 const meta: Meta<typeof BottomSheet> = {
   title: 'BottomSheet',
@@ -25,14 +27,14 @@ type Story = StoryObj<typeof BottomSheet>;
 
 export const Default: Story = {
   render: () => {
-    const { isOpen, isClosing, handleOpenBottomSheet, handleCloseBottomSheet } = useBottomSheet();
+    const { ref, isClosing, handleOpenBottomSheet, handleCloseBottomSheet } = useBottomSheet();
 
     return (
       <>
         <button type="button" style={{ padding: '10px', border: '1px solid gray' }} onClick={handleOpenBottomSheet}>
           바텀시트 열기
         </button>
-        <BottomSheet isOpen={isOpen} isClosing={isClosing} close={handleCloseBottomSheet}>
+        <BottomSheet isClosing={isClosing} close={handleCloseBottomSheet} ref={ref}>
           <div style={{ padding: '20px' }}>바텀시트 컴포넌트</div>
         </BottomSheet>
       </>
@@ -40,16 +42,16 @@ export const Default: Story = {
   },
 };
 
-export const WithMaxWidth: Story = {
+export const MaxWidth: Story = {
   render: () => {
-    const { isOpen, isClosing, handleOpenBottomSheet, handleCloseBottomSheet } = useBottomSheet();
+    const { ref, isClosing, handleOpenBottomSheet, handleCloseBottomSheet } = useBottomSheet();
 
     return (
       <>
         <button type="button" style={{ padding: '10px', border: '1px solid gray' }} onClick={handleOpenBottomSheet}>
           바텀시트 열기
         </button>
-        <BottomSheet isOpen={isOpen} isClosing={isClosing} maxWidth="300px" close={handleCloseBottomSheet}>
+        <BottomSheet isClosing={isClosing} maxWidth="300px" close={handleCloseBottomSheet} ref={ref}>
           <div style={{ padding: '20px' }}>바텀시트 컴포넌트</div>
         </BottomSheet>
       </>
@@ -59,14 +61,14 @@ export const WithMaxWidth: Story = {
 
 export const MaxHeight: Story = {
   render: () => {
-    const { isOpen, isClosing, handleOpenBottomSheet, handleCloseBottomSheet } = useBottomSheet();
+    const { ref, isClosing, handleOpenBottomSheet, handleCloseBottomSheet } = useBottomSheet();
 
     return (
       <>
         <button type="button" style={{ padding: '10px', border: '1px solid gray' }} onClick={handleOpenBottomSheet}>
           바텀시트 열기
         </button>
-        <BottomSheet isOpen={isOpen} isClosing={isClosing} close={handleCloseBottomSheet}>
+        <BottomSheet isClosing={isClosing} close={handleCloseBottomSheet} ref={ref}>
           <div style={{ padding: '20px' }}>
             Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical
             Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at
@@ -138,6 +140,26 @@ export const MaxHeight: Story = {
             section 1.10.32. The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those
             interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced
             in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+          </div>
+        </BottomSheet>
+      </>
+    );
+  },
+};
+
+export const WithToast: Story = {
+  render: () => {
+    const { ref, isClosing, handleOpenBottomSheet, handleCloseBottomSheet } = useBottomSheet();
+    const { toast } = useToastActionContext();
+
+    return (
+      <>
+        <button type="button" style={{ padding: '10px', border: '1px solid gray' }} onClick={handleOpenBottomSheet}>
+          바텀시트 열기
+        </button>
+        <BottomSheet hasToast isClosing={isClosing} close={handleCloseBottomSheet} ref={ref}>
+          <div style={{ padding: '20px' }}>
+            <button onClick={() => toast.success('토스트 테스트 중')}>토스트 버튼</button>
           </div>
         </BottomSheet>
       </>

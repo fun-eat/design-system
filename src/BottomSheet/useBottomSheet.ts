@@ -1,42 +1,32 @@
-import type { KeyboardEventHandler } from 'react';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
+import { useToastActionContext } from '../Toast';
 
 export const useBottomSheet = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDialogElement>(null);
+
+  const { setToastId } = useToastActionContext();
 
   const closeAnimated = useCallback(() => {
     setIsClosing(true);
 
     const timer = setTimeout(() => {
       setIsClosing(false);
-      setIsOpen(false);
+      ref.current?.close();
     }, 370);
 
     return () => clearTimeout(timer);
   }, []);
 
   const handleOpenBottomSheet = () => {
-    setIsOpen(true);
+    setToastId('toast-in-dialog-container');
+    ref.current?.showModal();
   };
 
   const handleCloseBottomSheet = () => {
+    setToastId('toast-container');
     closeAnimated();
   };
 
-  const handleKeydown = (e: KeyboardEvent) => {
-    if (e.keyCode === 27) {
-      e.preventDefault();
-      handleCloseBottomSheet();
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('keydown', handleKeydown);
-
-    return () => document.removeEventListener('keydown', handleKeydown);
-  }, [handleKeydown]);
-
-  return { ref, isOpen, isClosing, handleOpenBottomSheet, handleCloseBottomSheet };
+  return { ref, isClosing, handleOpenBottomSheet, handleCloseBottomSheet };
 };
